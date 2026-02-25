@@ -2,9 +2,35 @@
 const todoInput = document.getElementById('todoInput');
 const addBtn = document.getElementById('addBtn');
 const todoList = document.getElementById('todoList');
+const themeToggle = document.getElementById('themeToggle');
+
+// initialize theme based on storage or system preference
+(function initTheme() {
+    const saved = localStorage.getItem('theme');
+    const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+    if (saved === 'dark' || (!saved && prefersDark)) {
+        document.body.classList.add('dark');
+        if (themeToggle) themeToggle.textContent = '☀️';
+        if (themeToggle) themeToggle.setAttribute('aria-pressed', 'true');
+    } else {
+        document.body.classList.remove('dark');
+        if (themeToggle) themeToggle.textContent = '🌙';
+        if (themeToggle) themeToggle.setAttribute('aria-pressed', 'false');
+    }
+})();
 
 // Add todo on button click
 addBtn.addEventListener('click', addTodo);
+
+// theme toggle handler
+if (themeToggle) {
+    themeToggle.addEventListener('click', () => {
+        const isDark = document.body.classList.toggle('dark');
+        localStorage.setItem('theme', isDark ? 'dark' : 'light');
+        themeToggle.textContent = isDark ? '☀️' : '🌙';
+        themeToggle.setAttribute('aria-pressed', isDark ? 'true' : 'false');
+    });
+}
 
 // Add todo on Enter key press
 todoInput.addEventListener('keypress', (e) => {
