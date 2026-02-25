@@ -3,6 +3,11 @@ const todoInput = document.getElementById('todoInput');
 const addBtn = document.getElementById('addBtn');
 const todoList = document.getElementById('todoList');
 const themeToggle = document.getElementById('themeToggle');
+const filterBtns = document.querySelectorAll('.filter-btn');
+
+// State management
+let todos = JSON.parse(localStorage.getItem('todos')) || [];
+let currentFilter = 'all';
 
 // initialize theme based on storage or system preference
 (function initTheme() {
@@ -21,6 +26,16 @@ const themeToggle = document.getElementById('themeToggle');
 
 // Add todo on button click
 addBtn.addEventListener('click', addTodo);
+
+// Filter button handlers
+filterBtns.forEach(btn => {
+    btn.addEventListener('click', () => {
+        filterBtns.forEach(b => b.classList.remove('active'));
+        btn.classList.add('active');
+        currentFilter = btn.dataset.filter;
+        renderTodos();
+    });
+});
 
 // theme toggle handler
 if (themeToggle) {
@@ -43,40 +58,85 @@ todoInput.addEventListener('keypress', (e) => {
 function addTodo() {
     const todoText = todoInput.value.trim();
     
-    // Check if input is not empty
     if (todoText === '') {
-        alert('Please enter a todo!');
+        alert('Please enter a task!');
         return;
     }
     
-    // Create todo item
-    const todoItem = document.createElement('li');
-    todoItem.className = 'todo-item';
+    const todo = {
+        id: Date.now(),
+        text: todoText,
+        state: 'plan'
+    };
     
-    // Create text span
-    const textSpan = document.createElement('span');
-    textSpan.className = 'todo-text';
-    textSpan.textContent = todoText;
+    todos.push(todo);
+    saveTodos();
+    renderTodos();
     
-    // Create delete button
-    const deleteBtn = document.createElement('button');
-    deleteBtn.className = 'delete-btn';
-    deleteBtn.textContent = 'Delete';
-    deleteBtn.addEventListener('click', () => {
-        todoItem.remove();
-    });
-
-    // toggle completed when text clicked
-    textSpan.addEventListener('click', () => {
-        textSpan.classList.toggle('completed');
-    });
-    
-    // Append elements
-    todoItem.appendChild(textSpan);
-    todoItem.appendChild(deleteBtn);
-    todoList.appendChild(todoItem);
-    
-    // Clear input
     todoInput.value = '';
     todoInput.focus();
 }
+
+// Function to delete a todo
+function deleteTodo(id) {
+    todos = todos.filter(todo => todo.id !== id);
+    saveTodos();
+    renderTodos();
+}
+
+// Function to cycle task state
+function cycleState(id) {
+    const todo = todos.find(t => t.id === id);
+    if (!todo) return;
+    
+    const states = ['plan', 'todo', 'done'];
+    const currentIndex = states.indexOf(todo.state);
+    todo.state = states[(currentIndex + 1) % states.length];
+    
+    saveTodos();
+    renderTodos();
+}
+
+// Save todos to localStorage
+function saveTodos() {
+    localStorage.setItem('todos', JSON.stringify(todos));
+}
+
+// Render todos based on current filter
+function renderTodos() {
+    todoList.innerHTML = '';
+    
+    const filteredTodos = currentFilter === 'all' 
+        ? todos 
+        : todos.filter(todo => todo.state === currentFilter);
+    
+    filteredTodos.forEach(todo => {
+        const todoItem = document.createElement('li');
+        todoItem.className = `todo-item state-${todo.state}`;
+        
+        // State badge
+        const stateBadge = document.createElement('span');
+        stateBadge.className = 'state-badge';
+        stateBadge.textContent = todo.state === 'todo' ? 'To Do' : todo.state.charAt(0).toUpperCase() + todo.state.slice(1);
+        stateBadge.addEventListener('click', () => cycleState(todo.id));
+        
+        // Text span
+        const textSpan = document.createElement('span');
+        textSpan.className = 'todo-text';
+        textSpan.textContent = todo.text;
+        
+        // Delete button
+        const deleteBtn = document.createElement('button');
+        deleteBtn.className = 'delete-btn';
+        deleteBtn.textContent = 'Delete';
+        deleteBtn.addEventListener('click', () => deleteTodo(todo.id));
+        
+        todoItem.appendChild(stateBadge);
+        todoItem.appendChild(textSpan);
+        todoItem.appendChild(deleteBtn);
+        todoList.appendChild(todoItem);
+    });
+}
+
+// Initialize app
+renderTodos();

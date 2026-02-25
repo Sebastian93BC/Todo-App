@@ -12,8 +12,14 @@
         <!-- theme toggle button -->
         <button id="themeToggle" aria-label="Toggle dark/light theme" aria-pressed="false" title="Toggle theme">🌙</button>
         <div class="input-container">
-            <input type="text" id="todoInput" placeholder="Enter a new todo...">
-            <button id="addBtn">Add</button>
+            <input type="text" id="todoInput" placeholder="Enter a new task...">
+            <button id="addBtn">Add Task</button>
+        </div>
+        <div class="filter-container">
+            <button class="filter-btn active" data-filter="all">All</button>
+            <button class="filter-btn" data-filter="plan">Plan</button>
+            <button class="filter-btn" data-filter="todo">To Do</button>
+            <button class="filter-btn" data-filter="done">Done</button>
         </div>
         <ul id="todoList"></ul>
     </div>
