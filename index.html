@@ -21,18 +21,57 @@
         </div>
         <div class="input-container">
             <input type="text" id="todoInput" placeholder="What needs to be done?">
+            <select id="categorySelect" aria-label="Select category">
+                <option value="trabajo">Trabajo</option>
+                <option value="personal" selected>Personal</option>
+                <option value="estudio">Estudio</option>
+            </select>
             <button id="addBtn">
                 <span class="btn-icon">+</span>
                 <span>Add Task</span>
             </button>
         </div>
         <div class="filter-container">
-            <button class="filter-btn active" data-filter="all">All</button>
-            <button class="filter-btn" data-filter="plan">Plan</button>
-            <button class="filter-btn" data-filter="todo">To Do</button>
-            <button class="filter-btn" data-filter="done">Done</button>
+            <div class="state-filters">
+                <button class="filter-btn active" data-filter="all" data-count="0">All</button>
+                <button class="filter-btn" data-filter="plan" data-count="0">Plan</button>
+                <button class="filter-btn" data-filter="todo" data-count="0">To Do</button>
+                <button class="filter-btn" data-filter="done" data-count="0">Done</button>
+            </div>
+            <div class="category-filter-wrapper">
+                <select id="categoryFilter" aria-label="Filter by category">
+                    <option value="all" selected>All categories</option>
+                    <option value="trabajo">Trabajo</option>
+                    <option value="personal">Personal</option>
+                    <option value="estudio">Estudio</option>
+                </select>
+            </div>
         </div>
-        <ul id="todoList"></ul>
+
+        <!-- Kanban board -->
+        <div class="kanban-board" id="kanbanBoard">
+            <div class="kanban-column" id="column-plan" data-state="plan">
+                <div class="column-header">
+                    <span class="column-title">Plan</span>
+                    <span class="column-count" id="count-plan">0</span>
+                </div>
+                <div class="column-cards" id="cards-plan"></div>
+            </div>
+            <div class="kanban-column" id="column-todo" data-state="todo">
+                <div class="column-header">
+                    <span class="column-title">To Do</span>
+                    <span class="column-count" id="count-todo">0</span>
+                </div>
+                <div class="column-cards" id="cards-todo"></div>
+            </div>
+            <div class="kanban-column" id="column-done" data-state="done">
+                <div class="column-header">
+                    <span class="column-title">Done</span>
+                    <span class="column-count" id="count-done">0</span>
+                </div>
+                <div class="column-cards" id="cards-done"></div>
+            </div>
+        </div>
     </div>
     <script src="script.js"></script>
 </body>

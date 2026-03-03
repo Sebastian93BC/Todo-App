@@ -1,0 +1,949 @@
+FAIL __tests__/auth.test.js
+  User Registration - Email Validation and Password Requirements
+    POST /api/auth/register
+      Email Validation
+        ✕ should reject registration with invalid email format
+        ✕ should reject registration with missing @ symbol (4 ms)
+        ✕ should reject registration with missing domain
+        ✕ should reject registration with missing local part
+        ✕ should accept valid email formats
+        ✕ should reject registration with empty email
+        ✕ should reject registration with missing email field
+        ✕ should reject duplicate email registration
+        ✕ should be case-insensitive for duplicate email detection
+      Password Validation - Length Requirements
+        ✕ should reject password shorter than 8 characters
+        ✕ should reject password with exactly 7 characters (1 ms)
+        ✕ should accept password with exactly 8 characters
+        ✕ should accept long passwords
+        ✕ should reject empty password
+        ✕ should reject missing password field
+      Password Validation - Complexity Requirements
+        ✕ should reject password without uppercase letter
+        ✕ should reject password without lowercase letter
+        ✕ should reject password without number
+        ✕ should reject password without special character
+        ✕ should accept password meeting all complexity requirements
+        ✕ should accept various valid special characters
+      Successful Registration
+        ✕ should successfully register user with valid credentials
+        ✕ should return user ID on successful registration
+        ✕ should not return password in response
+        ✕ should store user in database with hashed password
+        ✕ should set created_at timestamp on registration
+      Edge Cases
+        ✕ should reject requests with additional unexpected fields
+        ✕ should handle email with whitespace (1 ms)
+        ✕ should reject null values
+        ✕ should reject non-string email values
+        ✕ should reject non-string password values
+
+  ● User Registration - Email Validation and Password Requirements › POST /api/auth/register › Email Validation › should reject registration with invalid email format
+
+    Could not locate the bindings file. Tried:
+     → /Users/sebastian93/Desktop/todo-app/server/node_modules/better-sqlite3/build/better_sqlite3.node
+     → /Users/sebastian93/Desktop/todo-app/server/node_modules/better-sqlite3/build/Debug/better_sqlite3.node
+     → /Users/sebastian93/Desktop/todo-app/server/node_modules/better-sqlite3/build/Release/better_sqlite3.node
+     → /Users/sebastian93/Desktop/todo-app/server/node_modules/better-sqlite3/out/Debug/better_sqlite3.node
+     → /Users/sebastian93/Desktop/todo-app/server/node_modules/better-sqlite3/Debug/better_sqlite3.node
+     → /Users/sebastian93/Desktop/todo-app/server/node_modules/better-sqlite3/out/Release/better_sqlite3.node
+     → /Users/sebastian93/Desktop/todo-app/server/node_modules/better-sqlite3/Release/better_sqlite3.node
+     → /Users/sebastian93/Desktop/todo-app/server/node_modules/better-sqlite3/build/default/better_sqlite3.node
+     → /Users/sebastian93/Desktop/todo-app/server/node_modules/better-sqlite3/compiled/24.7.0/darwin/arm64/better_sqlite3.node
+     → /Users/sebastian93/Desktop/todo-app/server/node_modules/better-sqlite3/addon-build/release/install-root/better_sqlite3.node
+     → /Users/sebastian93/Desktop/todo-app/server/node_modules/better-sqlite3/addon-build/debug/install-root/better_sqlite3.node
+     → /Users/sebastian93/Desktop/todo-app/server/node_modules/better-sqlite3/addon-build/default/install-root/better_sqlite3.node
+     → /Users/sebastian93/Desktop/todo-app/server/node_modules/better-sqlite3/lib/binding/node-v137-darwin-arm64/better_sqlite3.node
+
+      22 |
+      23 |     // Initialize test database
+    > 24 |     db = new Database(testDbPath);
+         |          ^
+      25 |     initializeTestDatabase(db);
+      26 |
+      27 |     // Create app with minimal setup
+
+      at bindings (node_modules/bindings/bindings.js:126:9)
+      at new Database (node_modules/better-sqlite3/lib/database.js:48:64)
+      at Object.<anonymous> (__tests__/auth.test.js:24:10)
+
+  ● User Registration - Email Validation and Password Requirements › POST /api/auth/register › Email Validation › should reject registration with missing @ symbol
+
+    Could not locate the bindings file. Tried:
+     → /Users/sebastian93/Desktop/todo-app/server/node_modules/better-sqlite3/build/better_sqlite3.node
+     → /Users/sebastian93/Desktop/todo-app/server/node_modules/better-sqlite3/build/Debug/better_sqlite3.node
+     → /Users/sebastian93/Desktop/todo-app/server/node_modules/better-sqlite3/build/Release/better_sqlite3.node
+     → /Users/sebastian93/Desktop/todo-app/server/node_modules/better-sqlite3/out/Debug/better_sqlite3.node
+     → /Users/sebastian93/Desktop/todo-app/server/node_modules/better-sqlite3/Debug/better_sqlite3.node
+     → /Users/sebastian93/Desktop/todo-app/server/node_modules/better-sqlite3/out/Release/better_sqlite3.node
+     → /Users/sebastian93/Desktop/todo-app/server/node_modules/better-sqlite3/Release/better_sqlite3.node
+     → /Users/sebastian93/Desktop/todo-app/server/node_modules/better-sqlite3/build/default/better_sqlite3.node
+     → /Users/sebastian93/Desktop/todo-app/server/node_modules/better-sqlite3/compiled/24.7.0/darwin/arm64/better_sqlite3.node
+     → /Users/sebastian93/Desktop/todo-app/server/node_modules/better-sqlite3/addon-build/release/install-root/better_sqlite3.node
+     → /Users/sebastian93/Desktop/todo-app/server/node_modules/better-sqlite3/addon-build/debug/install-root/better_sqlite3.node
+     → /Users/sebastian93/Desktop/todo-app/server/node_modules/better-sqlite3/addon-build/default/install-root/better_sqlite3.node
+     → /Users/sebastian93/Desktop/todo-app/server/node_modules/better-sqlite3/lib/binding/node-v137-darwin-arm64/better_sqlite3.node
+
+      22 |
+      23 |     // Initialize test database
+    > 24 |     db = new Database(testDbPath);
+         |          ^
+      25 |     initializeTestDatabase(db);
+      26 |
+      27 |     // Create app with minimal setup
+
+      at bindings (node_modules/bindings/bindings.js:126:9)
+      at new Database (node_modules/better-sqlite3/lib/database.js:48:64)
+      at Object.<anonymous> (__tests__/auth.test.js:24:10)
+
+  ● User Registration - Email Validation and Password Requirements › POST /api/auth/register › Email Validation › should reject registration with missing domain
+
+    Could not locate the bindings file. Tried:
+     → /Users/sebastian93/Desktop/todo-app/server/node_modules/better-sqlite3/build/better_sqlite3.node
+     → /Users/sebastian93/Desktop/todo-app/server/node_modules/better-sqlite3/build/Debug/better_sqlite3.node
+     → /Users/sebastian93/Desktop/todo-app/server/node_modules/better-sqlite3/build/Release/better_sqlite3.node
+     → /Users/sebastian93/Desktop/todo-app/server/node_modules/better-sqlite3/out/Debug/better_sqlite3.node
+     → /Users/sebastian93/Desktop/todo-app/server/node_modules/better-sqlite3/Debug/better_sqlite3.node
+     → /Users/sebastian93/Desktop/todo-app/server/node_modules/better-sqlite3/out/Release/better_sqlite3.node
+     → /Users/sebastian93/Desktop/todo-app/server/node_modules/better-sqlite3/Release/better_sqlite3.node
+     → /Users/sebastian93/Desktop/todo-app/server/node_modules/better-sqlite3/build/default/better_sqlite3.node
+     → /Users/sebastian93/Desktop/todo-app/server/node_modules/better-sqlite3/compiled/24.7.0/darwin/arm64/better_sqlite3.node
+     → /Users/sebastian93/Desktop/todo-app/server/node_modules/better-sqlite3/addon-build/release/install-root/better_sqlite3.node
+     → /Users/sebastian93/Desktop/todo-app/server/node_modules/better-sqlite3/addon-build/debug/install-root/better_sqlite3.node
+     → /Users/sebastian93/Desktop/todo-app/server/node_modules/better-sqlite3/addon-build/default/install-root/better_sqlite3.node
+     → /Users/sebastian93/Desktop/todo-app/server/node_modules/better-sqlite3/lib/binding/node-v137-darwin-arm64/better_sqlite3.node
+
+      22 |
+      23 |     // Initialize test database
+    > 24 |     db = new Database(testDbPath);
+         |          ^
+      25 |     initializeTestDatabase(db);
+      26 |
+      27 |     // Create app with minimal setup
+
+      at bindings (node_modules/bindings/bindings.js:126:9)
+      at new Database (node_modules/better-sqlite3/lib/database.js:48:64)
+      at Object.<anonymous> (__tests__/auth.test.js:24:10)
+
+  ● User Registration - Email Validation and Password Requirements › POST /api/auth/register › Email Validation › should reject registration with missing local part
+
+    Could not locate the bindings file. Tried:
+     → /Users/sebastian93/Desktop/todo-app/server/node_modules/better-sqlite3/build/better_sqlite3.node
+     → /Users/sebastian93/Desktop/todo-app/server/node_modules/better-sqlite3/build/Debug/better_sqlite3.node
+     → /Users/sebastian93/Desktop/todo-app/server/node_modules/better-sqlite3/build/Release/better_sqlite3.node
+     → /Users/sebastian93/Desktop/todo-app/server/node_modules/better-sqlite3/out/Debug/better_sqlite3.node
+     → /Users/sebastian93/Desktop/todo-app/server/node_modules/better-sqlite3/Debug/better_sqlite3.node
+     → /Users/sebastian93/Desktop/todo-app/server/node_modules/better-sqlite3/out/Release/better_sqlite3.node
+     → /Users/sebastian93/Desktop/todo-app/server/node_modules/better-sqlite3/Release/better_sqlite3.node
+     → /Users/sebastian93/Desktop/todo-app/server/node_modules/better-sqlite3/build/default/better_sqlite3.node
+     → /Users/sebastian93/Desktop/todo-app/server/node_modules/better-sqlite3/compiled/24.7.0/darwin/arm64/better_sqlite3.node
+     → /Users/sebastian93/Desktop/todo-app/server/node_modules/better-sqlite3/addon-build/release/install-root/better_sqlite3.node
+     → /Users/sebastian93/Desktop/todo-app/server/node_modules/better-sqlite3/addon-build/debug/install-root/better_sqlite3.node
+     → /Users/sebastian93/Desktop/todo-app/server/node_modules/better-sqlite3/addon-build/default/install-root/better_sqlite3.node
+     → /Users/sebastian93/Desktop/todo-app/server/node_modules/better-sqlite3/lib/binding/node-v137-darwin-arm64/better_sqlite3.node
+
+      22 |
+      23 |     // Initialize test database
+    > 24 |     db = new Database(testDbPath);
+         |          ^
+      25 |     initializeTestDatabase(db);
+      26 |
+      27 |     // Create app with minimal setup
+
+      at bindings (node_modules/bindings/bindings.js:126:9)
+      at new Database (node_modules/better-sqlite3/lib/database.js:48:64)
+      at Object.<anonymous> (__tests__/auth.test.js:24:10)
+
+  ● User Registration - Email Validation and Password Requirements › POST /api/auth/register › Email Validation › should accept valid email formats
+
+    Could not locate the bindings file. Tried:
+     → /Users/sebastian93/Desktop/todo-app/server/node_modules/better-sqlite3/build/better_sqlite3.node
+     → /Users/sebastian93/Desktop/todo-app/server/node_modules/better-sqlite3/build/Debug/better_sqlite3.node
+     → /Users/sebastian93/Desktop/todo-app/server/node_modules/better-sqlite3/build/Release/better_sqlite3.node
+     → /Users/sebastian93/Desktop/todo-app/server/node_modules/better-sqlite3/out/Debug/better_sqlite3.node
+     → /Users/sebastian93/Desktop/todo-app/server/node_modules/better-sqlite3/Debug/better_sqlite3.node
+     → /Users/sebastian93/Desktop/todo-app/server/node_modules/better-sqlite3/out/Release/better_sqlite3.node
+     → /Users/sebastian93/Desktop/todo-app/server/node_modules/better-sqlite3/Release/better_sqlite3.node
+     → /Users/sebastian93/Desktop/todo-app/server/node_modules/better-sqlite3/build/default/better_sqlite3.node
+     → /Users/sebastian93/Desktop/todo-app/server/node_modules/better-sqlite3/compiled/24.7.0/darwin/arm64/better_sqlite3.node
+     → /Users/sebastian93/Desktop/todo-app/server/node_modules/better-sqlite3/addon-build/release/install-root/better_sqlite3.node
+     → /Users/sebastian93/Desktop/todo-app/server/node_modules/better-sqlite3/addon-build/debug/install-root/better_sqlite3.node
+     → /Users/sebastian93/Desktop/todo-app/server/node_modules/better-sqlite3/addon-build/default/install-root/better_sqlite3.node
+     → /Users/sebastian93/Desktop/todo-app/server/node_modules/better-sqlite3/lib/binding/node-v137-darwin-arm64/better_sqlite3.node
+
+      22 |
+      23 |     // Initialize test database
+    > 24 |     db = new Database(testDbPath);
+         |          ^
+      25 |     initializeTestDatabase(db);
+      26 |
+      27 |     // Create app with minimal setup
+
+      at bindings (node_modules/bindings/bindings.js:126:9)
+      at new Database (node_modules/better-sqlite3/lib/database.js:48:64)
+      at Object.<anonymous> (__tests__/auth.test.js:24:10)
+
+  ● User Registration - Email Validation and Password Requirements › POST /api/auth/register › Email Validation › should reject registration with empty email
+
+    Could not locate the bindings file. Tried:
+     → /Users/sebastian93/Desktop/todo-app/server/node_modules/better-sqlite3/build/better_sqlite3.node
+     → /Users/sebastian93/Desktop/todo-app/server/node_modules/better-sqlite3/build/Debug/better_sqlite3.node
+     → /Users/sebastian93/Desktop/todo-app/server/node_modules/better-sqlite3/build/Release/better_sqlite3.node
+     → /Users/sebastian93/Desktop/todo-app/server/node_modules/better-sqlite3/out/Debug/better_sqlite3.node
+     → /Users/sebastian93/Desktop/todo-app/server/node_modules/better-sqlite3/Debug/better_sqlite3.node
+     → /Users/sebastian93/Desktop/todo-app/server/node_modules/better-sqlite3/out/Release/better_sqlite3.node
+     → /Users/sebastian93/Desktop/todo-app/server/node_modules/better-sqlite3/Release/better_sqlite3.node
+     → /Users/sebastian93/Desktop/todo-app/server/node_modules/better-sqlite3/build/default/better_sqlite3.node
+     → /Users/sebastian93/Desktop/todo-app/server/node_modules/better-sqlite3/compiled/24.7.0/darwin/arm64/better_sqlite3.node
+     → /Users/sebastian93/Desktop/todo-app/server/node_modules/better-sqlite3/addon-build/release/install-root/better_sqlite3.node
+     → /Users/sebastian93/Desktop/todo-app/server/node_modules/better-sqlite3/addon-build/debug/install-root/better_sqlite3.node
+     → /Users/sebastian93/Desktop/todo-app/server/node_modules/better-sqlite3/addon-build/default/install-root/better_sqlite3.node
+     → /Users/sebastian93/Desktop/todo-app/server/node_modules/better-sqlite3/lib/binding/node-v137-darwin-arm64/better_sqlite3.node
+
+      22 |
+      23 |     // Initialize test database
+    > 24 |     db = new Database(testDbPath);
+         |          ^
+      25 |     initializeTestDatabase(db);
+      26 |
+      27 |     // Create app with minimal setup
+
+      at bindings (node_modules/bindings/bindings.js:126:9)
+      at new Database (node_modules/better-sqlite3/lib/database.js:48:64)
+      at Object.<anonymous> (__tests__/auth.test.js:24:10)
+
+  ● User Registration - Email Validation and Password Requirements › POST /api/auth/register › Email Validation › should reject registration with missing email field
+
+    Could not locate the bindings file. Tried:
+     → /Users/sebastian93/Desktop/todo-app/server/node_modules/better-sqlite3/build/better_sqlite3.node
+     → /Users/sebastian93/Desktop/todo-app/server/node_modules/better-sqlite3/build/Debug/better_sqlite3.node
+     → /Users/sebastian93/Desktop/todo-app/server/node_modules/better-sqlite3/build/Release/better_sqlite3.node
+     → /Users/sebastian93/Desktop/todo-app/server/node_modules/better-sqlite3/out/Debug/better_sqlite3.node
+     → /Users/sebastian93/Desktop/todo-app/server/node_modules/better-sqlite3/Debug/better_sqlite3.node
+     → /Users/sebastian93/Desktop/todo-app/server/node_modules/better-sqlite3/out/Release/better_sqlite3.node
+     → /Users/sebastian93/Desktop/todo-app/server/node_modules/better-sqlite3/Release/better_sqlite3.node
+     → /Users/sebastian93/Desktop/todo-app/server/node_modules/better-sqlite3/build/default/better_sqlite3.node
+     → /Users/sebastian93/Desktop/todo-app/server/node_modules/better-sqlite3/compiled/24.7.0/darwin/arm64/better_sqlite3.node
+     → /Users/sebastian93/Desktop/todo-app/server/node_modules/better-sqlite3/addon-build/release/install-root/better_sqlite3.node
+     → /Users/sebastian93/Desktop/todo-app/server/node_modules/better-sqlite3/addon-build/debug/install-root/better_sqlite3.node
+     → /Users/sebastian93/Desktop/todo-app/server/node_modules/better-sqlite3/addon-build/default/install-root/better_sqlite3.node
+     → /Users/sebastian93/Desktop/todo-app/server/node_modules/better-sqlite3/lib/binding/node-v137-darwin-arm64/better_sqlite3.node
+
+      22 |
+      23 |     // Initialize test database
+    > 24 |     db = new Database(testDbPath);
+         |          ^
+      25 |     initializeTestDatabase(db);
+      26 |
+      27 |     // Create app with minimal setup
+
+      at bindings (node_modules/bindings/bindings.js:126:9)
+      at new Database (node_modules/better-sqlite3/lib/database.js:48:64)
+      at Object.<anonymous> (__tests__/auth.test.js:24:10)
+
+  ● User Registration - Email Validation and Password Requirements › POST /api/auth/register › Email Validation › should reject duplicate email registration
+
+    Could not locate the bindings file. Tried:
+     → /Users/sebastian93/Desktop/todo-app/server/node_modules/better-sqlite3/build/better_sqlite3.node
+     → /Users/sebastian93/Desktop/todo-app/server/node_modules/better-sqlite3/build/Debug/better_sqlite3.node
+     → /Users/sebastian93/Desktop/todo-app/server/node_modules/better-sqlite3/build/Release/better_sqlite3.node
+     → /Users/sebastian93/Desktop/todo-app/server/node_modules/better-sqlite3/out/Debug/better_sqlite3.node
+     → /Users/sebastian93/Desktop/todo-app/server/node_modules/better-sqlite3/Debug/better_sqlite3.node
+     → /Users/sebastian93/Desktop/todo-app/server/node_modules/better-sqlite3/out/Release/better_sqlite3.node
+     → /Users/sebastian93/Desktop/todo-app/server/node_modules/better-sqlite3/Release/better_sqlite3.node
+     → /Users/sebastian93/Desktop/todo-app/server/node_modules/better-sqlite3/build/default/better_sqlite3.node
+     → /Users/sebastian93/Desktop/todo-app/server/node_modules/better-sqlite3/compiled/24.7.0/darwin/arm64/better_sqlite3.node
+     → /Users/sebastian93/Desktop/todo-app/server/node_modules/better-sqlite3/addon-build/release/install-root/better_sqlite3.node
+     → /Users/sebastian93/Desktop/todo-app/server/node_modules/better-sqlite3/addon-build/debug/install-root/better_sqlite3.node
+     → /Users/sebastian93/Desktop/todo-app/server/node_modules/better-sqlite3/addon-build/default/install-root/better_sqlite3.node
+     → /Users/sebastian93/Desktop/todo-app/server/node_modules/better-sqlite3/lib/binding/node-v137-darwin-arm64/better_sqlite3.node
+
+      22 |
+      23 |     // Initialize test database
+    > 24 |     db = new Database(testDbPath);
+         |          ^
+      25 |     initializeTestDatabase(db);
+      26 |
+      27 |     // Create app with minimal setup
+
+      at bindings (node_modules/bindings/bindings.js:126:9)
+      at new Database (node_modules/better-sqlite3/lib/database.js:48:64)
+      at Object.<anonymous> (__tests__/auth.test.js:24:10)
+
+  ● User Registration - Email Validation and Password Requirements › POST /api/auth/register › Email Validation › should be case-insensitive for duplicate email detection
+
+    Could not locate the bindings file. Tried:
+     → /Users/sebastian93/Desktop/todo-app/server/node_modules/better-sqlite3/build/better_sqlite3.node
+     → /Users/sebastian93/Desktop/todo-app/server/node_modules/better-sqlite3/build/Debug/better_sqlite3.node
+     → /Users/sebastian93/Desktop/todo-app/server/node_modules/better-sqlite3/build/Release/better_sqlite3.node
+     → /Users/sebastian93/Desktop/todo-app/server/node_modules/better-sqlite3/out/Debug/better_sqlite3.node
+     → /Users/sebastian93/Desktop/todo-app/server/node_modules/better-sqlite3/Debug/better_sqlite3.node
+     → /Users/sebastian93/Desktop/todo-app/server/node_modules/better-sqlite3/out/Release/better_sqlite3.node
+     → /Users/sebastian93/Desktop/todo-app/server/node_modules/better-sqlite3/Release/better_sqlite3.node
+     → /Users/sebastian93/Desktop/todo-app/server/node_modules/better-sqlite3/build/default/better_sqlite3.node
+     → /Users/sebastian93/Desktop/todo-app/server/node_modules/better-sqlite3/compiled/24.7.0/darwin/arm64/better_sqlite3.node
+     → /Users/sebastian93/Desktop/todo-app/server/node_modules/better-sqlite3/addon-build/release/install-root/better_sqlite3.node
+     → /Users/sebastian93/Desktop/todo-app/server/node_modules/better-sqlite3/addon-build/debug/install-root/better_sqlite3.node
+     → /Users/sebastian93/Desktop/todo-app/server/node_modules/better-sqlite3/addon-build/default/install-root/better_sqlite3.node
+     → /Users/sebastian93/Desktop/todo-app/server/node_modules/better-sqlite3/lib/binding/node-v137-darwin-arm64/better_sqlite3.node
+
+      22 |
+      23 |     // Initialize test database
+    > 24 |     db = new Database(testDbPath);
+         |          ^
+      25 |     initializeTestDatabase(db);
+      26 |
+      27 |     // Create app with minimal setup
+
+      at bindings (node_modules/bindings/bindings.js:126:9)
+      at new Database (node_modules/better-sqlite3/lib/database.js:48:64)
+      at Object.<anonymous> (__tests__/auth.test.js:24:10)
+
+  ● User Registration - Email Validation and Password Requirements › POST /api/auth/register › Password Validation - Length Requirements › should reject password shorter than 8 characters
+
+    Could not locate the bindings file. Tried:
+     → /Users/sebastian93/Desktop/todo-app/server/node_modules/better-sqlite3/build/better_sqlite3.node
+     → /Users/sebastian93/Desktop/todo-app/server/node_modules/better-sqlite3/build/Debug/better_sqlite3.node
+     → /Users/sebastian93/Desktop/todo-app/server/node_modules/better-sqlite3/build/Release/better_sqlite3.node
+     → /Users/sebastian93/Desktop/todo-app/server/node_modules/better-sqlite3/out/Debug/better_sqlite3.node
+     → /Users/sebastian93/Desktop/todo-app/server/node_modules/better-sqlite3/Debug/better_sqlite3.node
+     → /Users/sebastian93/Desktop/todo-app/server/node_modules/better-sqlite3/out/Release/better_sqlite3.node
+     → /Users/sebastian93/Desktop/todo-app/server/node_modules/better-sqlite3/Release/better_sqlite3.node
+     → /Users/sebastian93/Desktop/todo-app/server/node_modules/better-sqlite3/build/default/better_sqlite3.node
+     → /Users/sebastian93/Desktop/todo-app/server/node_modules/better-sqlite3/compiled/24.7.0/darwin/arm64/better_sqlite3.node
+     → /Users/sebastian93/Desktop/todo-app/server/node_modules/better-sqlite3/addon-build/release/install-root/better_sqlite3.node
+     → /Users/sebastian93/Desktop/todo-app/server/node_modules/better-sqlite3/addon-build/debug/install-root/better_sqlite3.node
+     → /Users/sebastian93/Desktop/todo-app/server/node_modules/better-sqlite3/addon-build/default/install-root/better_sqlite3.node
+     → /Users/sebastian93/Desktop/todo-app/server/node_modules/better-sqlite3/lib/binding/node-v137-darwin-arm64/better_sqlite3.node
+
+      22 |
+      23 |     // Initialize test database
+    > 24 |     db = new Database(testDbPath);
+         |          ^
+      25 |     initializeTestDatabase(db);
+      26 |
+      27 |     // Create app with minimal setup
+
+      at bindings (node_modules/bindings/bindings.js:126:9)
+      at new Database (node_modules/better-sqlite3/lib/database.js:48:64)
+      at Object.<anonymous> (__tests__/auth.test.js:24:10)
+
+  ● User Registration - Email Validation and Password Requirements › POST /api/auth/register › Password Validation - Length Requirements › should reject password with exactly 7 characters
+
+    Could not locate the bindings file. Tried:
+     → /Users/sebastian93/Desktop/todo-app/server/node_modules/better-sqlite3/build/better_sqlite3.node
+     → /Users/sebastian93/Desktop/todo-app/server/node_modules/better-sqlite3/build/Debug/better_sqlite3.node
+     → /Users/sebastian93/Desktop/todo-app/server/node_modules/better-sqlite3/build/Release/better_sqlite3.node
+     → /Users/sebastian93/Desktop/todo-app/server/node_modules/better-sqlite3/out/Debug/better_sqlite3.node
+     → /Users/sebastian93/Desktop/todo-app/server/node_modules/better-sqlite3/Debug/better_sqlite3.node
+     → /Users/sebastian93/Desktop/todo-app/server/node_modules/better-sqlite3/out/Release/better_sqlite3.node
+     → /Users/sebastian93/Desktop/todo-app/server/node_modules/better-sqlite3/Release/better_sqlite3.node
+     → /Users/sebastian93/Desktop/todo-app/server/node_modules/better-sqlite3/build/default/better_sqlite3.node
+     → /Users/sebastian93/Desktop/todo-app/server/node_modules/better-sqlite3/compiled/24.7.0/darwin/arm64/better_sqlite3.node
+     → /Users/sebastian93/Desktop/todo-app/server/node_modules/better-sqlite3/addon-build/release/install-root/better_sqlite3.node
+     → /Users/sebastian93/Desktop/todo-app/server/node_modules/better-sqlite3/addon-build/debug/install-root/better_sqlite3.node
+     → /Users/sebastian93/Desktop/todo-app/server/node_modules/better-sqlite3/addon-build/default/install-root/better_sqlite3.node
+     → /Users/sebastian93/Desktop/todo-app/server/node_modules/better-sqlite3/lib/binding/node-v137-darwin-arm64/better_sqlite3.node
+
+      22 |
+      23 |     // Initialize test database
+    > 24 |     db = new Database(testDbPath);
+         |          ^
+      25 |     initializeTestDatabase(db);
+      26 |
+      27 |     // Create app with minimal setup
+
+      at bindings (node_modules/bindings/bindings.js:126:9)
+      at new Database (node_modules/better-sqlite3/lib/database.js:48:64)
+      at Object.<anonymous> (__tests__/auth.test.js:24:10)
+
+  ● User Registration - Email Validation and Password Requirements › POST /api/auth/register › Password Validation - Length Requirements › should accept password with exactly 8 characters
+
+    Could not locate the bindings file. Tried:
+     → /Users/sebastian93/Desktop/todo-app/server/node_modules/better-sqlite3/build/better_sqlite3.node
+     → /Users/sebastian93/Desktop/todo-app/server/node_modules/better-sqlite3/build/Debug/better_sqlite3.node
+     → /Users/sebastian93/Desktop/todo-app/server/node_modules/better-sqlite3/build/Release/better_sqlite3.node
+     → /Users/sebastian93/Desktop/todo-app/server/node_modules/better-sqlite3/out/Debug/better_sqlite3.node
+     → /Users/sebastian93/Desktop/todo-app/server/node_modules/better-sqlite3/Debug/better_sqlite3.node
+     → /Users/sebastian93/Desktop/todo-app/server/node_modules/better-sqlite3/out/Release/better_sqlite3.node
+     → /Users/sebastian93/Desktop/todo-app/server/node_modules/better-sqlite3/Release/better_sqlite3.node
+     → /Users/sebastian93/Desktop/todo-app/server/node_modules/better-sqlite3/build/default/better_sqlite3.node
+     → /Users/sebastian93/Desktop/todo-app/server/node_modules/better-sqlite3/compiled/24.7.0/darwin/arm64/better_sqlite3.node
+     → /Users/sebastian93/Desktop/todo-app/server/node_modules/better-sqlite3/addon-build/release/install-root/better_sqlite3.node
+     → /Users/sebastian93/Desktop/todo-app/server/node_modules/better-sqlite3/addon-build/debug/install-root/better_sqlite3.node
+     → /Users/sebastian93/Desktop/todo-app/server/node_modules/better-sqlite3/addon-build/default/install-root/better_sqlite3.node
+     → /Users/sebastian93/Desktop/todo-app/server/node_modules/better-sqlite3/lib/binding/node-v137-darwin-arm64/better_sqlite3.node
+
+      22 |
+      23 |     // Initialize test database
+    > 24 |     db = new Database(testDbPath);
+         |          ^
+      25 |     initializeTestDatabase(db);
+      26 |
+      27 |     // Create app with minimal setup
+
+      at bindings (node_modules/bindings/bindings.js:126:9)
+      at new Database (node_modules/better-sqlite3/lib/database.js:48:64)
+      at Object.<anonymous> (__tests__/auth.test.js:24:10)
+
+  ● User Registration - Email Validation and Password Requirements › POST /api/auth/register › Password Validation - Length Requirements › should accept long passwords
+
+    Could not locate the bindings file. Tried:
+     → /Users/sebastian93/Desktop/todo-app/server/node_modules/better-sqlite3/build/better_sqlite3.node
+     → /Users/sebastian93/Desktop/todo-app/server/node_modules/better-sqlite3/build/Debug/better_sqlite3.node
+     → /Users/sebastian93/Desktop/todo-app/server/node_modules/better-sqlite3/build/Release/better_sqlite3.node
+     → /Users/sebastian93/Desktop/todo-app/server/node_modules/better-sqlite3/out/Debug/better_sqlite3.node
+     → /Users/sebastian93/Desktop/todo-app/server/node_modules/better-sqlite3/Debug/better_sqlite3.node
+     → /Users/sebastian93/Desktop/todo-app/server/node_modules/better-sqlite3/out/Release/better_sqlite3.node
+     → /Users/sebastian93/Desktop/todo-app/server/node_modules/better-sqlite3/Release/better_sqlite3.node
+     → /Users/sebastian93/Desktop/todo-app/server/node_modules/better-sqlite3/build/default/better_sqlite3.node
+     → /Users/sebastian93/Desktop/todo-app/server/node_modules/better-sqlite3/compiled/24.7.0/darwin/arm64/better_sqlite3.node
+     → /Users/sebastian93/Desktop/todo-app/server/node_modules/better-sqlite3/addon-build/release/install-root/better_sqlite3.node
+     → /Users/sebastian93/Desktop/todo-app/server/node_modules/better-sqlite3/addon-build/debug/install-root/better_sqlite3.node
+     → /Users/sebastian93/Desktop/todo-app/server/node_modules/better-sqlite3/addon-build/default/install-root/better_sqlite3.node
+     → /Users/sebastian93/Desktop/todo-app/server/node_modules/better-sqlite3/lib/binding/node-v137-darwin-arm64/better_sqlite3.node
+
+      22 |
+      23 |     // Initialize test database
+    > 24 |     db = new Database(testDbPath);
+         |          ^
+      25 |     initializeTestDatabase(db);
+      26 |
+      27 |     // Create app with minimal setup
+
+      at bindings (node_modules/bindings/bindings.js:126:9)
+      at new Database (node_modules/better-sqlite3/lib/database.js:48:64)
+      at Object.<anonymous> (__tests__/auth.test.js:24:10)
+
+  ● User Registration - Email Validation and Password Requirements › POST /api/auth/register › Password Validation - Length Requirements › should reject empty password
+
+    Could not locate the bindings file. Tried:
+     → /Users/sebastian93/Desktop/todo-app/server/node_modules/better-sqlite3/build/better_sqlite3.node
+     → /Users/sebastian93/Desktop/todo-app/server/node_modules/better-sqlite3/build/Debug/better_sqlite3.node
+     → /Users/sebastian93/Desktop/todo-app/server/node_modules/better-sqlite3/build/Release/better_sqlite3.node
+     → /Users/sebastian93/Desktop/todo-app/server/node_modules/better-sqlite3/out/Debug/better_sqlite3.node
+     → /Users/sebastian93/Desktop/todo-app/server/node_modules/better-sqlite3/Debug/better_sqlite3.node
+     → /Users/sebastian93/Desktop/todo-app/server/node_modules/better-sqlite3/out/Release/better_sqlite3.node
+     → /Users/sebastian93/Desktop/todo-app/server/node_modules/better-sqlite3/Release/better_sqlite3.node
+     → /Users/sebastian93/Desktop/todo-app/server/node_modules/better-sqlite3/build/default/better_sqlite3.node
+     → /Users/sebastian93/Desktop/todo-app/server/node_modules/better-sqlite3/compiled/24.7.0/darwin/arm64/better_sqlite3.node
+     → /Users/sebastian93/Desktop/todo-app/server/node_modules/better-sqlite3/addon-build/release/install-root/better_sqlite3.node
+     → /Users/sebastian93/Desktop/todo-app/server/node_modules/better-sqlite3/addon-build/debug/install-root/better_sqlite3.node
+     → /Users/sebastian93/Desktop/todo-app/server/node_modules/better-sqlite3/addon-build/default/install-root/better_sqlite3.node
+     → /Users/sebastian93/Desktop/todo-app/server/node_modules/better-sqlite3/lib/binding/node-v137-darwin-arm64/better_sqlite3.node
+
+      22 |
+      23 |     // Initialize test database
+    > 24 |     db = new Database(testDbPath);
+         |          ^
+      25 |     initializeTestDatabase(db);
+      26 |
+      27 |     // Create app with minimal setup
+
+      at bindings (node_modules/bindings/bindings.js:126:9)
+      at new Database (node_modules/better-sqlite3/lib/database.js:48:64)
+      at Object.<anonymous> (__tests__/auth.test.js:24:10)
+
+  ● User Registration - Email Validation and Password Requirements › POST /api/auth/register › Password Validation - Length Requirements › should reject missing password field
+
+    Could not locate the bindings file. Tried:
+     → /Users/sebastian93/Desktop/todo-app/server/node_modules/better-sqlite3/build/better_sqlite3.node
+     → /Users/sebastian93/Desktop/todo-app/server/node_modules/better-sqlite3/build/Debug/better_sqlite3.node
+     → /Users/sebastian93/Desktop/todo-app/server/node_modules/better-sqlite3/build/Release/better_sqlite3.node
+     → /Users/sebastian93/Desktop/todo-app/server/node_modules/better-sqlite3/out/Debug/better_sqlite3.node
+     → /Users/sebastian93/Desktop/todo-app/server/node_modules/better-sqlite3/Debug/better_sqlite3.node
+     → /Users/sebastian93/Desktop/todo-app/server/node_modules/better-sqlite3/out/Release/better_sqlite3.node
+     → /Users/sebastian93/Desktop/todo-app/server/node_modules/better-sqlite3/Release/better_sqlite3.node
+     → /Users/sebastian93/Desktop/todo-app/server/node_modules/better-sqlite3/build/default/better_sqlite3.node
+     → /Users/sebastian93/Desktop/todo-app/server/node_modules/better-sqlite3/compiled/24.7.0/darwin/arm64/better_sqlite3.node
+     → /Users/sebastian93/Desktop/todo-app/server/node_modules/better-sqlite3/addon-build/release/install-root/better_sqlite3.node
+     → /Users/sebastian93/Desktop/todo-app/server/node_modules/better-sqlite3/addon-build/debug/install-root/better_sqlite3.node
+     → /Users/sebastian93/Desktop/todo-app/server/node_modules/better-sqlite3/addon-build/default/install-root/better_sqlite3.node
+     → /Users/sebastian93/Desktop/todo-app/server/node_modules/better-sqlite3/lib/binding/node-v137-darwin-arm64/better_sqlite3.node
+
+      22 |
+      23 |     // Initialize test database
+    > 24 |     db = new Database(testDbPath);
+         |          ^
+      25 |     initializeTestDatabase(db);
+      26 |
+      27 |     // Create app with minimal setup
+
+      at bindings (node_modules/bindings/bindings.js:126:9)
+      at new Database (node_modules/better-sqlite3/lib/database.js:48:64)
+      at Object.<anonymous> (__tests__/auth.test.js:24:10)
+
+  ● User Registration - Email Validation and Password Requirements › POST /api/auth/register › Password Validation - Complexity Requirements › should reject password without uppercase letter
+
+    Could not locate the bindings file. Tried:
+     → /Users/sebastian93/Desktop/todo-app/server/node_modules/better-sqlite3/build/better_sqlite3.node
+     → /Users/sebastian93/Desktop/todo-app/server/node_modules/better-sqlite3/build/Debug/better_sqlite3.node
+     → /Users/sebastian93/Desktop/todo-app/server/node_modules/better-sqlite3/build/Release/better_sqlite3.node
+     → /Users/sebastian93/Desktop/todo-app/server/node_modules/better-sqlite3/out/Debug/better_sqlite3.node
+     → /Users/sebastian93/Desktop/todo-app/server/node_modules/better-sqlite3/Debug/better_sqlite3.node
+     → /Users/sebastian93/Desktop/todo-app/server/node_modules/better-sqlite3/out/Release/better_sqlite3.node
+     → /Users/sebastian93/Desktop/todo-app/server/node_modules/better-sqlite3/Release/better_sqlite3.node
+     → /Users/sebastian93/Desktop/todo-app/server/node_modules/better-sqlite3/build/default/better_sqlite3.node
+     → /Users/sebastian93/Desktop/todo-app/server/node_modules/better-sqlite3/compiled/24.7.0/darwin/arm64/better_sqlite3.node
+     → /Users/sebastian93/Desktop/todo-app/server/node_modules/better-sqlite3/addon-build/release/install-root/better_sqlite3.node
+     → /Users/sebastian93/Desktop/todo-app/server/node_modules/better-sqlite3/addon-build/debug/install-root/better_sqlite3.node
+     → /Users/sebastian93/Desktop/todo-app/server/node_modules/better-sqlite3/addon-build/default/install-root/better_sqlite3.node
+     → /Users/sebastian93/Desktop/todo-app/server/node_modules/better-sqlite3/lib/binding/node-v137-darwin-arm64/better_sqlite3.node
+
+      22 |
+      23 |     // Initialize test database
+    > 24 |     db = new Database(testDbPath);
+         |          ^
+      25 |     initializeTestDatabase(db);
+      26 |
+      27 |     // Create app with minimal setup
+
+      at bindings (node_modules/bindings/bindings.js:126:9)
+      at new Database (node_modules/better-sqlite3/lib/database.js:48:64)
+      at Object.<anonymous> (__tests__/auth.test.js:24:10)
+
+  ● User Registration - Email Validation and Password Requirements › POST /api/auth/register › Password Validation - Complexity Requirements › should reject password without lowercase letter
+
+    Could not locate the bindings file. Tried:
+     → /Users/sebastian93/Desktop/todo-app/server/node_modules/better-sqlite3/build/better_sqlite3.node
+     → /Users/sebastian93/Desktop/todo-app/server/node_modules/better-sqlite3/build/Debug/better_sqlite3.node
+     → /Users/sebastian93/Desktop/todo-app/server/node_modules/better-sqlite3/build/Release/better_sqlite3.node
+     → /Users/sebastian93/Desktop/todo-app/server/node_modules/better-sqlite3/out/Debug/better_sqlite3.node
+     → /Users/sebastian93/Desktop/todo-app/server/node_modules/better-sqlite3/Debug/better_sqlite3.node
+     → /Users/sebastian93/Desktop/todo-app/server/node_modules/better-sqlite3/out/Release/better_sqlite3.node
+     → /Users/sebastian93/Desktop/todo-app/server/node_modules/better-sqlite3/Release/better_sqlite3.node
+     → /Users/sebastian93/Desktop/todo-app/server/node_modules/better-sqlite3/build/default/better_sqlite3.node
+     → /Users/sebastian93/Desktop/todo-app/server/node_modules/better-sqlite3/compiled/24.7.0/darwin/arm64/better_sqlite3.node
+     → /Users/sebastian93/Desktop/todo-app/server/node_modules/better-sqlite3/addon-build/release/install-root/better_sqlite3.node
+     → /Users/sebastian93/Desktop/todo-app/server/node_modules/better-sqlite3/addon-build/debug/install-root/better_sqlite3.node
+     → /Users/sebastian93/Desktop/todo-app/server/node_modules/better-sqlite3/addon-build/default/install-root/better_sqlite3.node
+     → /Users/sebastian93/Desktop/todo-app/server/node_modules/better-sqlite3/lib/binding/node-v137-darwin-arm64/better_sqlite3.node
+
+      22 |
+      23 |     // Initialize test database
+    > 24 |     db = new Database(testDbPath);
+         |          ^
+      25 |     initializeTestDatabase(db);
+      26 |
+      27 |     // Create app with minimal setup
+
+      at bindings (node_modules/bindings/bindings.js:126:9)
+      at new Database (node_modules/better-sqlite3/lib/database.js:48:64)
+      at Object.<anonymous> (__tests__/auth.test.js:24:10)
+
+  ● User Registration - Email Validation and Password Requirements › POST /api/auth/register › Password Validation - Complexity Requirements › should reject password without number
+
+    Could not locate the bindings file. Tried:
+     → /Users/sebastian93/Desktop/todo-app/server/node_modules/better-sqlite3/build/better_sqlite3.node
+     → /Users/sebastian93/Desktop/todo-app/server/node_modules/better-sqlite3/build/Debug/better_sqlite3.node
+     → /Users/sebastian93/Desktop/todo-app/server/node_modules/better-sqlite3/build/Release/better_sqlite3.node
+     → /Users/sebastian93/Desktop/todo-app/server/node_modules/better-sqlite3/out/Debug/better_sqlite3.node
+     → /Users/sebastian93/Desktop/todo-app/server/node_modules/better-sqlite3/Debug/better_sqlite3.node
+     → /Users/sebastian93/Desktop/todo-app/server/node_modules/better-sqlite3/out/Release/better_sqlite3.node
+     → /Users/sebastian93/Desktop/todo-app/server/node_modules/better-sqlite3/Release/better_sqlite3.node
+     → /Users/sebastian93/Desktop/todo-app/server/node_modules/better-sqlite3/build/default/better_sqlite3.node
+     → /Users/sebastian93/Desktop/todo-app/server/node_modules/better-sqlite3/compiled/24.7.0/darwin/arm64/better_sqlite3.node
+     → /Users/sebastian93/Desktop/todo-app/server/node_modules/better-sqlite3/addon-build/release/install-root/better_sqlite3.node
+     → /Users/sebastian93/Desktop/todo-app/server/node_modules/better-sqlite3/addon-build/debug/install-root/better_sqlite3.node
+     → /Users/sebastian93/Desktop/todo-app/server/node_modules/better-sqlite3/addon-build/default/install-root/better_sqlite3.node
+     → /Users/sebastian93/Desktop/todo-app/server/node_modules/better-sqlite3/lib/binding/node-v137-darwin-arm64/better_sqlite3.node
+
+      22 |
+      23 |     // Initialize test database
+    > 24 |     db = new Database(testDbPath);
+         |          ^
+      25 |     initializeTestDatabase(db);
+      26 |
+      27 |     // Create app with minimal setup
+
+      at bindings (node_modules/bindings/bindings.js:126:9)
+      at new Database (node_modules/better-sqlite3/lib/database.js:48:64)
+      at Object.<anonymous> (__tests__/auth.test.js:24:10)
+
+  ● User Registration - Email Validation and Password Requirements › POST /api/auth/register › Password Validation - Complexity Requirements › should reject password without special character
+
+    Could not locate the bindings file. Tried:
+     → /Users/sebastian93/Desktop/todo-app/server/node_modules/better-sqlite3/build/better_sqlite3.node
+     → /Users/sebastian93/Desktop/todo-app/server/node_modules/better-sqlite3/build/Debug/better_sqlite3.node
+     → /Users/sebastian93/Desktop/todo-app/server/node_modules/better-sqlite3/build/Release/better_sqlite3.node
+     → /Users/sebastian93/Desktop/todo-app/server/node_modules/better-sqlite3/out/Debug/better_sqlite3.node
+     → /Users/sebastian93/Desktop/todo-app/server/node_modules/better-sqlite3/Debug/better_sqlite3.node
+     → /Users/sebastian93/Desktop/todo-app/server/node_modules/better-sqlite3/out/Release/better_sqlite3.node
+     → /Users/sebastian93/Desktop/todo-app/server/node_modules/better-sqlite3/Release/better_sqlite3.node
+     → /Users/sebastian93/Desktop/todo-app/server/node_modules/better-sqlite3/build/default/better_sqlite3.node
+     → /Users/sebastian93/Desktop/todo-app/server/node_modules/better-sqlite3/compiled/24.7.0/darwin/arm64/better_sqlite3.node
+     → /Users/sebastian93/Desktop/todo-app/server/node_modules/better-sqlite3/addon-build/release/install-root/better_sqlite3.node
+     → /Users/sebastian93/Desktop/todo-app/server/node_modules/better-sqlite3/addon-build/debug/install-root/better_sqlite3.node
+     → /Users/sebastian93/Desktop/todo-app/server/node_modules/better-sqlite3/addon-build/default/install-root/better_sqlite3.node
+     → /Users/sebastian93/Desktop/todo-app/server/node_modules/better-sqlite3/lib/binding/node-v137-darwin-arm64/better_sqlite3.node
+
+      22 |
+      23 |     // Initialize test database
+    > 24 |     db = new Database(testDbPath);
+         |          ^
+      25 |     initializeTestDatabase(db);
+      26 |
+      27 |     // Create app with minimal setup
+
+      at bindings (node_modules/bindings/bindings.js:126:9)
+      at new Database (node_modules/better-sqlite3/lib/database.js:48:64)
+      at Object.<anonymous> (__tests__/auth.test.js:24:10)
+
+  ● User Registration - Email Validation and Password Requirements › POST /api/auth/register › Password Validation - Complexity Requirements › should accept password meeting all complexity requirements
+
+    Could not locate the bindings file. Tried:
+     → /Users/sebastian93/Desktop/todo-app/server/node_modules/better-sqlite3/build/better_sqlite3.node
+     → /Users/sebastian93/Desktop/todo-app/server/node_modules/better-sqlite3/build/Debug/better_sqlite3.node
+     → /Users/sebastian93/Desktop/todo-app/server/node_modules/better-sqlite3/build/Release/better_sqlite3.node
+     → /Users/sebastian93/Desktop/todo-app/server/node_modules/better-sqlite3/out/Debug/better_sqlite3.node
+     → /Users/sebastian93/Desktop/todo-app/server/node_modules/better-sqlite3/Debug/better_sqlite3.node
+     → /Users/sebastian93/Desktop/todo-app/server/node_modules/better-sqlite3/out/Release/better_sqlite3.node
+     → /Users/sebastian93/Desktop/todo-app/server/node_modules/better-sqlite3/Release/better_sqlite3.node
+     → /Users/sebastian93/Desktop/todo-app/server/node_modules/better-sqlite3/build/default/better_sqlite3.node
+     → /Users/sebastian93/Desktop/todo-app/server/node_modules/better-sqlite3/compiled/24.7.0/darwin/arm64/better_sqlite3.node
+     → /Users/sebastian93/Desktop/todo-app/server/node_modules/better-sqlite3/addon-build/release/install-root/better_sqlite3.node
+     → /Users/sebastian93/Desktop/todo-app/server/node_modules/better-sqlite3/addon-build/debug/install-root/better_sqlite3.node
+     → /Users/sebastian93/Desktop/todo-app/server/node_modules/better-sqlite3/addon-build/default/install-root/better_sqlite3.node
+     → /Users/sebastian93/Desktop/todo-app/server/node_modules/better-sqlite3/lib/binding/node-v137-darwin-arm64/better_sqlite3.node
+
+      22 |
+      23 |     // Initialize test database
+    > 24 |     db = new Database(testDbPath);
+         |          ^
+      25 |     initializeTestDatabase(db);
+      26 |
+      27 |     // Create app with minimal setup
+
+      at bindings (node_modules/bindings/bindings.js:126:9)
+      at new Database (node_modules/better-sqlite3/lib/database.js:48:64)
+      at Object.<anonymous> (__tests__/auth.test.js:24:10)
+
+  ● User Registration - Email Validation and Password Requirements › POST /api/auth/register › Password Validation - Complexity Requirements › should accept various valid special characters
+
+    Could not locate the bindings file. Tried:
+     → /Users/sebastian93/Desktop/todo-app/server/node_modules/better-sqlite3/build/better_sqlite3.node
+     → /Users/sebastian93/Desktop/todo-app/server/node_modules/better-sqlite3/build/Debug/better_sqlite3.node
+     → /Users/sebastian93/Desktop/todo-app/server/node_modules/better-sqlite3/build/Release/better_sqlite3.node
+     → /Users/sebastian93/Desktop/todo-app/server/node_modules/better-sqlite3/out/Debug/better_sqlite3.node
+     → /Users/sebastian93/Desktop/todo-app/server/node_modules/better-sqlite3/Debug/better_sqlite3.node
+     → /Users/sebastian93/Desktop/todo-app/server/node_modules/better-sqlite3/out/Release/better_sqlite3.node
+     → /Users/sebastian93/Desktop/todo-app/server/node_modules/better-sqlite3/Release/better_sqlite3.node
+     → /Users/sebastian93/Desktop/todo-app/server/node_modules/better-sqlite3/build/default/better_sqlite3.node
+     → /Users/sebastian93/Desktop/todo-app/server/node_modules/better-sqlite3/compiled/24.7.0/darwin/arm64/better_sqlite3.node
+     → /Users/sebastian93/Desktop/todo-app/server/node_modules/better-sqlite3/addon-build/release/install-root/better_sqlite3.node
+     → /Users/sebastian93/Desktop/todo-app/server/node_modules/better-sqlite3/addon-build/debug/install-root/better_sqlite3.node
+     → /Users/sebastian93/Desktop/todo-app/server/node_modules/better-sqlite3/addon-build/default/install-root/better_sqlite3.node
+     → /Users/sebastian93/Desktop/todo-app/server/node_modules/better-sqlite3/lib/binding/node-v137-darwin-arm64/better_sqlite3.node
+
+      22 |
+      23 |     // Initialize test database
+    > 24 |     db = new Database(testDbPath);
+         |          ^
+      25 |     initializeTestDatabase(db);
+      26 |
+      27 |     // Create app with minimal setup
+
+      at bindings (node_modules/bindings/bindings.js:126:9)
+      at new Database (node_modules/better-sqlite3/lib/database.js:48:64)
+      at Object.<anonymous> (__tests__/auth.test.js:24:10)
+
+  ● User Registration - Email Validation and Password Requirements › POST /api/auth/register › Successful Registration › should successfully register user with valid credentials
+
+    Could not locate the bindings file. Tried:
+     → /Users/sebastian93/Desktop/todo-app/server/node_modules/better-sqlite3/build/better_sqlite3.node
+     → /Users/sebastian93/Desktop/todo-app/server/node_modules/better-sqlite3/build/Debug/better_sqlite3.node
+     → /Users/sebastian93/Desktop/todo-app/server/node_modules/better-sqlite3/build/Release/better_sqlite3.node
+     → /Users/sebastian93/Desktop/todo-app/server/node_modules/better-sqlite3/out/Debug/better_sqlite3.node
+     → /Users/sebastian93/Desktop/todo-app/server/node_modules/better-sqlite3/Debug/better_sqlite3.node
+     → /Users/sebastian93/Desktop/todo-app/server/node_modules/better-sqlite3/out/Release/better_sqlite3.node
+     → /Users/sebastian93/Desktop/todo-app/server/node_modules/better-sqlite3/Release/better_sqlite3.node
+     → /Users/sebastian93/Desktop/todo-app/server/node_modules/better-sqlite3/build/default/better_sqlite3.node
+     → /Users/sebastian93/Desktop/todo-app/server/node_modules/better-sqlite3/compiled/24.7.0/darwin/arm64/better_sqlite3.node
+     → /Users/sebastian93/Desktop/todo-app/server/node_modules/better-sqlite3/addon-build/release/install-root/better_sqlite3.node
+     → /Users/sebastian93/Desktop/todo-app/server/node_modules/better-sqlite3/addon-build/debug/install-root/better_sqlite3.node
+     → /Users/sebastian93/Desktop/todo-app/server/node_modules/better-sqlite3/addon-build/default/install-root/better_sqlite3.node
+     → /Users/sebastian93/Desktop/todo-app/server/node_modules/better-sqlite3/lib/binding/node-v137-darwin-arm64/better_sqlite3.node
+
+      22 |
+      23 |     // Initialize test database
+    > 24 |     db = new Database(testDbPath);
+         |          ^
+      25 |     initializeTestDatabase(db);
+      26 |
+      27 |     // Create app with minimal setup
+
+      at bindings (node_modules/bindings/bindings.js:126:9)
+      at new Database (node_modules/better-sqlite3/lib/database.js:48:64)
+      at Object.<anonymous> (__tests__/auth.test.js:24:10)
+
+  ● User Registration - Email Validation and Password Requirements › POST /api/auth/register › Successful Registration › should return user ID on successful registration
+
+    Could not locate the bindings file. Tried:
+     → /Users/sebastian93/Desktop/todo-app/server/node_modules/better-sqlite3/build/better_sqlite3.node
+     → /Users/sebastian93/Desktop/todo-app/server/node_modules/better-sqlite3/build/Debug/better_sqlite3.node
+     → /Users/sebastian93/Desktop/todo-app/server/node_modules/better-sqlite3/build/Release/better_sqlite3.node
+     → /Users/sebastian93/Desktop/todo-app/server/node_modules/better-sqlite3/out/Debug/better_sqlite3.node
+     → /Users/sebastian93/Desktop/todo-app/server/node_modules/better-sqlite3/Debug/better_sqlite3.node
+     → /Users/sebastian93/Desktop/todo-app/server/node_modules/better-sqlite3/out/Release/better_sqlite3.node
+     → /Users/sebastian93/Desktop/todo-app/server/node_modules/better-sqlite3/Release/better_sqlite3.node
+     → /Users/sebastian93/Desktop/todo-app/server/node_modules/better-sqlite3/build/default/better_sqlite3.node
+     → /Users/sebastian93/Desktop/todo-app/server/node_modules/better-sqlite3/compiled/24.7.0/darwin/arm64/better_sqlite3.node
+     → /Users/sebastian93/Desktop/todo-app/server/node_modules/better-sqlite3/addon-build/release/install-root/better_sqlite3.node
+     → /Users/sebastian93/Desktop/todo-app/server/node_modules/better-sqlite3/addon-build/debug/install-root/better_sqlite3.node
+     → /Users/sebastian93/Desktop/todo-app/server/node_modules/better-sqlite3/addon-build/default/install-root/better_sqlite3.node
+     → /Users/sebastian93/Desktop/todo-app/server/node_modules/better-sqlite3/lib/binding/node-v137-darwin-arm64/better_sqlite3.node
+
+      22 |
+      23 |     // Initialize test database
+    > 24 |     db = new Database(testDbPath);
+         |          ^
+      25 |     initializeTestDatabase(db);
+      26 |
+      27 |     // Create app with minimal setup
+
+      at bindings (node_modules/bindings/bindings.js:126:9)
+      at new Database (node_modules/better-sqlite3/lib/database.js:48:64)
+      at Object.<anonymous> (__tests__/auth.test.js:24:10)
+
+  ● User Registration - Email Validation and Password Requirements › POST /api/auth/register › Successful Registration › should not return password in response
+
+    Could not locate the bindings file. Tried:
+     → /Users/sebastian93/Desktop/todo-app/server/node_modules/better-sqlite3/build/better_sqlite3.node
+     → /Users/sebastian93/Desktop/todo-app/server/node_modules/better-sqlite3/build/Debug/better_sqlite3.node
+     → /Users/sebastian93/Desktop/todo-app/server/node_modules/better-sqlite3/build/Release/better_sqlite3.node
+     → /Users/sebastian93/Desktop/todo-app/server/node_modules/better-sqlite3/out/Debug/better_sqlite3.node
+     → /Users/sebastian93/Desktop/todo-app/server/node_modules/better-sqlite3/Debug/better_sqlite3.node
+     → /Users/sebastian93/Desktop/todo-app/server/node_modules/better-sqlite3/out/Release/better_sqlite3.node
+     → /Users/sebastian93/Desktop/todo-app/server/node_modules/better-sqlite3/Release/better_sqlite3.node
+     → /Users/sebastian93/Desktop/todo-app/server/node_modules/better-sqlite3/build/default/better_sqlite3.node
+     → /Users/sebastian93/Desktop/todo-app/server/node_modules/better-sqlite3/compiled/24.7.0/darwin/arm64/better_sqlite3.node
+     → /Users/sebastian93/Desktop/todo-app/server/node_modules/better-sqlite3/addon-build/release/install-root/better_sqlite3.node
+     → /Users/sebastian93/Desktop/todo-app/server/node_modules/better-sqlite3/addon-build/debug/install-root/better_sqlite3.node
+     → /Users/sebastian93/Desktop/todo-app/server/node_modules/better-sqlite3/addon-build/default/install-root/better_sqlite3.node
+     → /Users/sebastian93/Desktop/todo-app/server/node_modules/better-sqlite3/lib/binding/node-v137-darwin-arm64/better_sqlite3.node
+
+      22 |
+      23 |     // Initialize test database
+    > 24 |     db = new Database(testDbPath);
+         |          ^
+      25 |     initializeTestDatabase(db);
+      26 |
+      27 |     // Create app with minimal setup
+
+      at bindings (node_modules/bindings/bindings.js:126:9)
+      at new Database (node_modules/better-sqlite3/lib/database.js:48:64)
+      at Object.<anonymous> (__tests__/auth.test.js:24:10)
+
+  ● User Registration - Email Validation and Password Requirements › POST /api/auth/register › Successful Registration › should store user in database with hashed password
+
+    Could not locate the bindings file. Tried:
+     → /Users/sebastian93/Desktop/todo-app/server/node_modules/better-sqlite3/build/better_sqlite3.node
+     → /Users/sebastian93/Desktop/todo-app/server/node_modules/better-sqlite3/build/Debug/better_sqlite3.node
+     → /Users/sebastian93/Desktop/todo-app/server/node_modules/better-sqlite3/build/Release/better_sqlite3.node
+     → /Users/sebastian93/Desktop/todo-app/server/node_modules/better-sqlite3/out/Debug/better_sqlite3.node
+     → /Users/sebastian93/Desktop/todo-app/server/node_modules/better-sqlite3/Debug/better_sqlite3.node
+     → /Users/sebastian93/Desktop/todo-app/server/node_modules/better-sqlite3/out/Release/better_sqlite3.node
+     → /Users/sebastian93/Desktop/todo-app/server/node_modules/better-sqlite3/Release/better_sqlite3.node
+     → /Users/sebastian93/Desktop/todo-app/server/node_modules/better-sqlite3/build/default/better_sqlite3.node
+     → /Users/sebastian93/Desktop/todo-app/server/node_modules/better-sqlite3/compiled/24.7.0/darwin/arm64/better_sqlite3.node
+     → /Users/sebastian93/Desktop/todo-app/server/node_modules/better-sqlite3/addon-build/release/install-root/better_sqlite3.node
+     → /Users/sebastian93/Desktop/todo-app/server/node_modules/better-sqlite3/addon-build/debug/install-root/better_sqlite3.node
+     → /Users/sebastian93/Desktop/todo-app/server/node_modules/better-sqlite3/addon-build/default/install-root/better_sqlite3.node
+     → /Users/sebastian93/Desktop/todo-app/server/node_modules/better-sqlite3/lib/binding/node-v137-darwin-arm64/better_sqlite3.node
+
+      22 |
+      23 |     // Initialize test database
+    > 24 |     db = new Database(testDbPath);
+         |          ^
+      25 |     initializeTestDatabase(db);
+      26 |
+      27 |     // Create app with minimal setup
+
+      at bindings (node_modules/bindings/bindings.js:126:9)
+      at new Database (node_modules/better-sqlite3/lib/database.js:48:64)
+      at Object.<anonymous> (__tests__/auth.test.js:24:10)
+
+  ● User Registration - Email Validation and Password Requirements › POST /api/auth/register › Successful Registration › should set created_at timestamp on registration
+
+    Could not locate the bindings file. Tried:
+     → /Users/sebastian93/Desktop/todo-app/server/node_modules/better-sqlite3/build/better_sqlite3.node
+     → /Users/sebastian93/Desktop/todo-app/server/node_modules/better-sqlite3/build/Debug/better_sqlite3.node
+     → /Users/sebastian93/Desktop/todo-app/server/node_modules/better-sqlite3/build/Release/better_sqlite3.node
+     → /Users/sebastian93/Desktop/todo-app/server/node_modules/better-sqlite3/out/Debug/better_sqlite3.node
+     → /Users/sebastian93/Desktop/todo-app/server/node_modules/better-sqlite3/Debug/better_sqlite3.node
+     → /Users/sebastian93/Desktop/todo-app/server/node_modules/better-sqlite3/out/Release/better_sqlite3.node
+     → /Users/sebastian93/Desktop/todo-app/server/node_modules/better-sqlite3/Release/better_sqlite3.node
+     → /Users/sebastian93/Desktop/todo-app/server/node_modules/better-sqlite3/build/default/better_sqlite3.node
+     → /Users/sebastian93/Desktop/todo-app/server/node_modules/better-sqlite3/compiled/24.7.0/darwin/arm64/better_sqlite3.node
+     → /Users/sebastian93/Desktop/todo-app/server/node_modules/better-sqlite3/addon-build/release/install-root/better_sqlite3.node
+     → /Users/sebastian93/Desktop/todo-app/server/node_modules/better-sqlite3/addon-build/debug/install-root/better_sqlite3.node
+     → /Users/sebastian93/Desktop/todo-app/server/node_modules/better-sqlite3/addon-build/default/install-root/better_sqlite3.node
+     → /Users/sebastian93/Desktop/todo-app/server/node_modules/better-sqlite3/lib/binding/node-v137-darwin-arm64/better_sqlite3.node
+
+      22 |
+      23 |     // Initialize test database
+    > 24 |     db = new Database(testDbPath);
+         |          ^
+      25 |     initializeTestDatabase(db);
+      26 |
+      27 |     // Create app with minimal setup
+
+      at bindings (node_modules/bindings/bindings.js:126:9)
+      at new Database (node_modules/better-sqlite3/lib/database.js:48:64)
+      at Object.<anonymous> (__tests__/auth.test.js:24:10)
+
+  ● User Registration - Email Validation and Password Requirements › POST /api/auth/register › Edge Cases › should reject requests with additional unexpected fields
+
+    Could not locate the bindings file. Tried:
+     → /Users/sebastian93/Desktop/todo-app/server/node_modules/better-sqlite3/build/better_sqlite3.node
+     → /Users/sebastian93/Desktop/todo-app/server/node_modules/better-sqlite3/build/Debug/better_sqlite3.node
+     → /Users/sebastian93/Desktop/todo-app/server/node_modules/better-sqlite3/build/Release/better_sqlite3.node
+     → /Users/sebastian93/Desktop/todo-app/server/node_modules/better-sqlite3/out/Debug/better_sqlite3.node
+     → /Users/sebastian93/Desktop/todo-app/server/node_modules/better-sqlite3/Debug/better_sqlite3.node
+     → /Users/sebastian93/Desktop/todo-app/server/node_modules/better-sqlite3/out/Release/better_sqlite3.node
+     → /Users/sebastian93/Desktop/todo-app/server/node_modules/better-sqlite3/Release/better_sqlite3.node
+     → /Users/sebastian93/Desktop/todo-app/server/node_modules/better-sqlite3/build/default/better_sqlite3.node
+     → /Users/sebastian93/Desktop/todo-app/server/node_modules/better-sqlite3/compiled/24.7.0/darwin/arm64/better_sqlite3.node
+     → /Users/sebastian93/Desktop/todo-app/server/node_modules/better-sqlite3/addon-build/release/install-root/better_sqlite3.node
+     → /Users/sebastian93/Desktop/todo-app/server/node_modules/better-sqlite3/addon-build/debug/install-root/better_sqlite3.node
+     → /Users/sebastian93/Desktop/todo-app/server/node_modules/better-sqlite3/addon-build/default/install-root/better_sqlite3.node
+     → /Users/sebastian93/Desktop/todo-app/server/node_modules/better-sqlite3/lib/binding/node-v137-darwin-arm64/better_sqlite3.node
+
+      22 |
+      23 |     // Initialize test database
+    > 24 |     db = new Database(testDbPath);
+         |          ^
+      25 |     initializeTestDatabase(db);
+      26 |
+      27 |     // Create app with minimal setup
+
+      at bindings (node_modules/bindings/bindings.js:126:9)
+      at new Database (node_modules/better-sqlite3/lib/database.js:48:64)
+      at Object.<anonymous> (__tests__/auth.test.js:24:10)
+
+  ● User Registration - Email Validation and Password Requirements › POST /api/auth/register › Edge Cases › should handle email with whitespace
+
+    Could not locate the bindings file. Tried:
+     → /Users/sebastian93/Desktop/todo-app/server/node_modules/better-sqlite3/build/better_sqlite3.node
+     → /Users/sebastian93/Desktop/todo-app/server/node_modules/better-sqlite3/build/Debug/better_sqlite3.node
+     → /Users/sebastian93/Desktop/todo-app/server/node_modules/better-sqlite3/build/Release/better_sqlite3.node
+     → /Users/sebastian93/Desktop/todo-app/server/node_modules/better-sqlite3/out/Debug/better_sqlite3.node
+     → /Users/sebastian93/Desktop/todo-app/server/node_modules/better-sqlite3/Debug/better_sqlite3.node
+     → /Users/sebastian93/Desktop/todo-app/server/node_modules/better-sqlite3/out/Release/better_sqlite3.node
+     → /Users/sebastian93/Desktop/todo-app/server/node_modules/better-sqlite3/Release/better_sqlite3.node
+     → /Users/sebastian93/Desktop/todo-app/server/node_modules/better-sqlite3/build/default/better_sqlite3.node
+     → /Users/sebastian93/Desktop/todo-app/server/node_modules/better-sqlite3/compiled/24.7.0/darwin/arm64/better_sqlite3.node
+     → /Users/sebastian93/Desktop/todo-app/server/node_modules/better-sqlite3/addon-build/release/install-root/better_sqlite3.node
+     → /Users/sebastian93/Desktop/todo-app/server/node_modules/better-sqlite3/addon-build/debug/install-root/better_sqlite3.node
+     → /Users/sebastian93/Desktop/todo-app/server/node_modules/better-sqlite3/addon-build/default/install-root/better_sqlite3.node
+     → /Users/sebastian93/Desktop/todo-app/server/node_modules/better-sqlite3/lib/binding/node-v137-darwin-arm64/better_sqlite3.node
+
+      22 |
+      23 |     // Initialize test database
+    > 24 |     db = new Database(testDbPath);
+         |          ^
+      25 |     initializeTestDatabase(db);
+      26 |
+      27 |     // Create app with minimal setup
+
+      at bindings (node_modules/bindings/bindings.js:126:9)
+      at new Database (node_modules/better-sqlite3/lib/database.js:48:64)
+      at Object.<anonymous> (__tests__/auth.test.js:24:10)
+
+  ● User Registration - Email Validation and Password Requirements › POST /api/auth/register › Edge Cases › should reject null values
+
+    Could not locate the bindings file. Tried:
+     → /Users/sebastian93/Desktop/todo-app/server/node_modules/better-sqlite3/build/better_sqlite3.node
+     → /Users/sebastian93/Desktop/todo-app/server/node_modules/better-sqlite3/build/Debug/better_sqlite3.node
+     → /Users/sebastian93/Desktop/todo-app/server/node_modules/better-sqlite3/build/Release/better_sqlite3.node
+     → /Users/sebastian93/Desktop/todo-app/server/node_modules/better-sqlite3/out/Debug/better_sqlite3.node
+     → /Users/sebastian93/Desktop/todo-app/server/node_modules/better-sqlite3/Debug/better_sqlite3.node
+     → /Users/sebastian93/Desktop/todo-app/server/node_modules/better-sqlite3/out/Release/better_sqlite3.node
+     → /Users/sebastian93/Desktop/todo-app/server/node_modules/better-sqlite3/Release/better_sqlite3.node
+     → /Users/sebastian93/Desktop/todo-app/server/node_modules/better-sqlite3/build/default/better_sqlite3.node
+     → /Users/sebastian93/Desktop/todo-app/server/node_modules/better-sqlite3/compiled/24.7.0/darwin/arm64/better_sqlite3.node
+     → /Users/sebastian93/Desktop/todo-app/server/node_modules/better-sqlite3/addon-build/release/install-root/better_sqlite3.node
+     → /Users/sebastian93/Desktop/todo-app/server/node_modules/better-sqlite3/addon-build/debug/install-root/better_sqlite3.node
+     → /Users/sebastian93/Desktop/todo-app/server/node_modules/better-sqlite3/addon-build/default/install-root/better_sqlite3.node
+     → /Users/sebastian93/Desktop/todo-app/server/node_modules/better-sqlite3/lib/binding/node-v137-darwin-arm64/better_sqlite3.node
+
+      22 |
+      23 |     // Initialize test database
+    > 24 |     db = new Database(testDbPath);
+         |          ^
+      25 |     initializeTestDatabase(db);
+      26 |
+      27 |     // Create app with minimal setup
+
+      at bindings (node_modules/bindings/bindings.js:126:9)
+      at new Database (node_modules/better-sqlite3/lib/database.js:48:64)
+      at Object.<anonymous> (__tests__/auth.test.js:24:10)
+
+  ● User Registration - Email Validation and Password Requirements › POST /api/auth/register › Edge Cases › should reject non-string email values
+
+    Could not locate the bindings file. Tried:
+     → /Users/sebastian93/Desktop/todo-app/server/node_modules/better-sqlite3/build/better_sqlite3.node
+     → /Users/sebastian93/Desktop/todo-app/server/node_modules/better-sqlite3/build/Debug/better_sqlite3.node
+     → /Users/sebastian93/Desktop/todo-app/server/node_modules/better-sqlite3/build/Release/better_sqlite3.node
+     → /Users/sebastian93/Desktop/todo-app/server/node_modules/better-sqlite3/out/Debug/better_sqlite3.node
+     → /Users/sebastian93/Desktop/todo-app/server/node_modules/better-sqlite3/Debug/better_sqlite3.node
+     → /Users/sebastian93/Desktop/todo-app/server/node_modules/better-sqlite3/out/Release/better_sqlite3.node
+     → /Users/sebastian93/Desktop/todo-app/server/node_modules/better-sqlite3/Release/better_sqlite3.node
+     → /Users/sebastian93/Desktop/todo-app/server/node_modules/better-sqlite3/build/default/better_sqlite3.node
+     → /Users/sebastian93/Desktop/todo-app/server/node_modules/better-sqlite3/compiled/24.7.0/darwin/arm64/better_sqlite3.node
+     → /Users/sebastian93/Desktop/todo-app/server/node_modules/better-sqlite3/addon-build/release/install-root/better_sqlite3.node
+     → /Users/sebastian93/Desktop/todo-app/server/node_modules/better-sqlite3/addon-build/debug/install-root/better_sqlite3.node
+     → /Users/sebastian93/Desktop/todo-app/server/node_modules/better-sqlite3/addon-build/default/install-root/better_sqlite3.node
+     → /Users/sebastian93/Desktop/todo-app/server/node_modules/better-sqlite3/lib/binding/node-v137-darwin-arm64/better_sqlite3.node
+
+      22 |
+      23 |     // Initialize test database
+    > 24 |     db = new Database(testDbPath);
+         |          ^
+      25 |     initializeTestDatabase(db);
+      26 |
+      27 |     // Create app with minimal setup
+
+      at bindings (node_modules/bindings/bindings.js:126:9)
+      at new Database (node_modules/better-sqlite3/lib/database.js:48:64)
+      at Object.<anonymous> (__tests__/auth.test.js:24:10)
+
+  ● User Registration - Email Validation and Password Requirements › POST /api/auth/register › Edge Cases › should reject non-string password values
+
+    Could not locate the bindings file. Tried:
+     → /Users/sebastian93/Desktop/todo-app/server/node_modules/better-sqlite3/build/better_sqlite3.node
+     → /Users/sebastian93/Desktop/todo-app/server/node_modules/better-sqlite3/build/Debug/better_sqlite3.node
+     → /Users/sebastian93/Desktop/todo-app/server/node_modules/better-sqlite3/build/Release/better_sqlite3.node
+     → /Users/sebastian93/Desktop/todo-app/server/node_modules/better-sqlite3/out/Debug/better_sqlite3.node
+     → /Users/sebastian93/Desktop/todo-app/server/node_modules/better-sqlite3/Debug/better_sqlite3.node
+     → /Users/sebastian93/Desktop/todo-app/server/node_modules/better-sqlite3/out/Release/better_sqlite3.node
+     → /Users/sebastian93/Desktop/todo-app/server/node_modules/better-sqlite3/Release/better_sqlite3.node
+     → /Users/sebastian93/Desktop/todo-app/server/node_modules/better-sqlite3/build/default/better_sqlite3.node
+     → /Users/sebastian93/Desktop/todo-app/server/node_modules/better-sqlite3/compiled/24.7.0/darwin/arm64/better_sqlite3.node
+     → /Users/sebastian93/Desktop/todo-app/server/node_modules/better-sqlite3/addon-build/release/install-root/better_sqlite3.node
+     → /Users/sebastian93/Desktop/todo-app/server/node_modules/better-sqlite3/addon-build/debug/install-root/better_sqlite3.node
+     → /Users/sebastian93/Desktop/todo-app/server/node_modules/better-sqlite3/addon-build/default/install-root/better_sqlite3.node
+     → /Users/sebastian93/Desktop/todo-app/server/node_modules/better-sqlite3/lib/binding/node-v137-darwin-arm64/better_sqlite3.node
+
+      22 |
+      23 |     // Initialize test database
+    > 24 |     db = new Database(testDbPath);
+         |          ^
+      25 |     initializeTestDatabase(db);
+      26 |
+      27 |     // Create app with minimal setup
+
+      at bindings (node_modules/bindings/bindings.js:126:9)
+      at new Database (node_modules/better-sqlite3/lib/database.js:48:64)
+      at Object.<anonymous> (__tests__/auth.test.js:24:10)
+
+Test Suites: 1 failed, 1 total
+Tests:       31 failed, 31 total
+Snapshots:   0 total
+Time:        0.355 s, estimated 1 s
+Ran all test suites.
+npm notice
+npm notice New minor version of npm available! 11.5.1 -> 11.11.0
+npm notice Changelog: https://github.com/npm/cli/releases/tag/v11.11.0
+npm notice To update run: npm install -g npm@11.11.0
+npm notice
