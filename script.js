@@ -8,7 +8,6 @@ const SVG_COMMENT = `<svg xmlns="http://www.w3.org/2000/svg" width="13" height="
 const todoInput = document.getElementById('todoInput');
 const addBtn = document.getElementById('addBtn');
 const themeToggle = document.getElementById('themeToggle');
-const filterBtns = document.querySelectorAll('.filter-btn');
 const taskCount = document.getElementById('taskCount');
 const categorySelect = document.getElementById('categorySelect');
 const categoryFilter = document.getElementById('categoryFilter');
@@ -20,7 +19,6 @@ const COMMENTS_PER_PAGE = 5;
 
 // State management
 let todos = [];
-let currentFilter = 'all';
 let currentCategoryFilter = 'all';
 let needsSync = false;
 let isSyncing = false;
@@ -154,15 +152,6 @@ if (categoryFilter) {
   });
 }
 
-filterBtns.forEach(btn => {
-  btn.addEventListener('click', () => {
-    filterBtns.forEach(b => b.classList.remove('active'));
-    btn.classList.add('active');
-    currentFilter = btn.dataset.filter;
-    renderTodos();
-  });
-});
-
 if (themeToggle) {
   themeToggle.addEventListener('click', () => {
     const isDark = document.body.classList.toggle('dark');
@@ -222,21 +211,6 @@ function updateTaskCount() {
   const total = todos.length;
   const done = todos.filter(t => t.state === 'done').length;
   taskCount.textContent = total === 0 ? '0 tasks' : `${done} of ${total} done`;
-  
-  // Update filter button counters
-  const planCount = todos.filter(t => t.state === 'plan').length;
-  const todoCount = todos.filter(t => t.state === 'todo').length;
-  const doneCount = todos.filter(t => t.state === 'done').length;
-  
-  const allBtn = document.querySelector('[data-filter="all"]');
-  const planBtn = document.querySelector('[data-filter="plan"]');
-  const todoBtn = document.querySelector('[data-filter="todo"]');
-  const doneBtn = document.querySelector('[data-filter="done"]');
-  
-  if (allBtn) allBtn.setAttribute('data-count', total);
-  if (planBtn) planBtn.setAttribute('data-count', planCount);
-  if (todoBtn) todoBtn.setAttribute('data-count', todoCount);
-  if (doneBtn) doneBtn.setAttribute('data-count', doneCount);
 }
 
 // ── Kanban board rendering ─────────────────────────────────────────────────
@@ -256,10 +230,6 @@ function renderTodos() {
   let filtered = currentCategoryFilter === 'all'
     ? todos
     : todos.filter(t => t.category === currentCategoryFilter);
-
-  if (currentFilter !== 'all') {
-    filtered = filtered.filter(t => t.state === currentFilter);
-  }
 
   // Group by state and render
   const groups = { plan: [], todo: [], done: [] };
