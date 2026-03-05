@@ -10,29 +10,66 @@
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
+    <canvas id="confettiCanvas"></canvas>
     <div class="container">
         <div class="header">
             <div class="header-text">
                 <h1>My Tasks</h1>
+                <p class="greeting" id="greeting"></p>
                 <p class="task-count" id="taskCount">0 tasks</p>
             </div>
             <!-- theme toggle button -->
-            <button id="themeToggle" aria-label="Toggle dark/light theme" aria-pressed="false" title="Toggle theme">🌙</button>
+            <button id="themeToggle" aria-label="Toggle dark/light theme" aria-pressed="false" title="Toggle theme">
+              <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
+            </button>
         </div>
         <div class="input-container">
             <input type="text" id="todoInput" placeholder="What needs to be done?">
+            <select id="categorySelect" aria-label="Select category">
+                <option value="trabajo">Trabajo</option>
+                <option value="personal" selected>Personal</option>
+                <option value="estudio">Estudio</option>
+            </select>
             <button id="addBtn">
                 <span class="btn-icon">+</span>
                 <span>Add Task</span>
             </button>
         </div>
         <div class="filter-container">
-            <button class="filter-btn active" data-filter="all">All</button>
-            <button class="filter-btn" data-filter="plan">Plan</button>
-            <button class="filter-btn" data-filter="todo">To Do</button>
-            <button class="filter-btn" data-filter="done">Done</button>
+            <div class="category-filter-wrapper">
+                <select id="categoryFilter" aria-label="Filter by category">
+                    <option value="all" selected>All categories</option>
+                    <option value="trabajo">Trabajo</option>
+                    <option value="personal">Personal</option>
+                    <option value="estudio">Estudio</option>
+                </select>
+            </div>
         </div>
-        <ul id="todoList"></ul>
+
+        <!-- Kanban board -->
+        <div class="kanban-board" id="kanbanBoard">
+            <div class="kanban-column" id="column-plan" data-state="plan">
+                <div class="column-header">
+                    <span class="column-title">Plan</span>
+                    <span class="column-count" id="count-plan">0</span>
+                </div>
+                <div class="column-cards" id="cards-plan"></div>
+            </div>
+            <div class="kanban-column" id="column-todo" data-state="todo">
+                <div class="column-header">
+                    <span class="column-title">To Do</span>
+                    <span class="column-count" id="count-todo">0</span>
+                </div>
+                <div class="column-cards" id="cards-todo"></div>
+            </div>
+            <div class="kanban-column" id="column-done" data-state="done">
+                <div class="column-header">
+                    <span class="column-title">Done</span>
+                    <span class="column-count" id="count-done">0</span>
+                </div>
+                <div class="column-cards" id="cards-done"></div>
+            </div>
+        </div>
     </div>
     <script src="script.js"></script>
 </body>
