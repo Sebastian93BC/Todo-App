@@ -11,6 +11,8 @@ const themeToggle = document.getElementById('themeToggle');
 const taskCount = document.getElementById('taskCount');
 const categorySelect = document.getElementById('categorySelect');
 const categoryFilter = document.getElementById('categoryFilter');
+const greetingEl = document.getElementById('greeting');
+const confettiCanvas = document.getElementById('confettiCanvas');
 
 // Configuration
 const API_URL = 'http://localhost:3000/api';
@@ -119,6 +121,83 @@ async function attemptMigration() {
   }
 }
 
+// Set greeting based on time of day
+function updateGreeting() {
+  if (!greetingEl) return;
+  const hour = new Date().getHours();
+  let emoji, text;
+  if (hour >= 5 && hour < 12) {
+    emoji = '\u2600\uFE0F'; text = 'Good morning! Ready to be productive?';
+  } else if (hour >= 12 && hour < 17) {
+    emoji = '\u{1F31E}'; text = 'Good afternoon! Keep up the great work!';
+  } else if (hour >= 17 && hour < 21) {
+    emoji = '\u{1F305}'; text = 'Good evening! Wrapping up for the day?';
+  } else {
+    emoji = '\u{1F319}'; text = 'Working late? Remember to rest!';
+  }
+  greetingEl.textContent = `${emoji} ${text}`;
+}
+updateGreeting();
+
+// Confetti celebration when task is completed
+function launchConfetti() {
+  if (!confettiCanvas) return;
+  const ctx = confettiCanvas.getContext('2d');
+  confettiCanvas.width = window.innerWidth;
+  confettiCanvas.height = window.innerHeight;
+  const colors = ['#818cf8', '#f472b6', '#fb923c', '#34d399', '#fbbf24', '#a78bfa', '#f43f5e'];
+  const particles = [];
+  for (let i = 0; i < 80; i++) {
+    particles.push({
+      x: Math.random() * confettiCanvas.width,
+      y: confettiCanvas.height + Math.random() * 20,
+      vx: (Math.random() - 0.5) * 8,
+      vy: -(Math.random() * 14 + 6),
+      color: colors[Math.floor(Math.random() * colors.length)],
+      size: Math.random() * 6 + 3,
+      rotation: Math.random() * 360,
+      rotSpeed: (Math.random() - 0.5) * 10,
+      gravity: 0.15 + Math.random() * 0.1,
+      opacity: 1,
+      shape: Math.random() > 0.5 ? 'rect' : 'circle'
+    });
+  }
+  let frame = 0;
+  function animate() {
+    ctx.clearRect(0, 0, confettiCanvas.width, confettiCanvas.height);
+    let alive = false;
+    particles.forEach(p => {
+      p.x += p.vx;
+      p.vy += p.gravity;
+      p.y += p.vy;
+      p.rotation += p.rotSpeed;
+      if (frame > 30) p.opacity -= 0.015;
+      if (p.opacity <= 0) return;
+      alive = true;
+      ctx.save();
+      ctx.translate(p.x, p.y);
+      ctx.rotate((p.rotation * Math.PI) / 180);
+      ctx.globalAlpha = Math.max(0, p.opacity);
+      ctx.fillStyle = p.color;
+      if (p.shape === 'rect') {
+        ctx.fillRect(-p.size / 2, -p.size / 2, p.size, p.size * 0.6);
+      } else {
+        ctx.beginPath();
+        ctx.arc(0, 0, p.size / 2, 0, Math.PI * 2);
+        ctx.fill();
+      }
+      ctx.restore();
+    });
+    frame++;
+    if (alive && frame < 120) {
+      requestAnimationFrame(animate);
+    } else {
+      ctx.clearRect(0, 0, confettiCanvas.width, confettiCanvas.height);
+    }
+  }
+  animate();
+}
+
 // Initialize theme
 (function initTheme() {
   const saved = localStorage.getItem('theme');
@@ -200,9 +279,14 @@ function cycleState(id) {
   const todo = todos.find(t => t.id === id);
   if (!todo) return;
   const states = ['plan', 'todo', 'done'];
+  const prevState = todo.state;
   todo.state = states[(states.indexOf(todo.state) + 1) % states.length];
   saveTodos();
   renderTodos();
+  // Celebrate when a task is marked as done
+  if (prevState !== 'done' && todo.state === 'done') {
+    launchConfetti();
+  }
 }
 
 // Update task count display
@@ -435,9 +519,14 @@ function initKanban() {
       const id = Number(e.dataTransfer.getData('text/plain'));
       const t = todos.find(t => t.id === id);
       if (t && t.state !== state) {
+        const prevState = t.state;
         t.state = state;
         await saveTodos();
         renderTodos();
+        // Celebrate when dropped into done column
+        if (prevState !== 'done' && state === 'done') {
+          launchConfetti();
+        }
       }
     });
   });
