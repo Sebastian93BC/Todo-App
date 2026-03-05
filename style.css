@@ -18,6 +18,26 @@ html {
     will-change: transform;
 }
 
+/* SVG icon rendering inside buttons */
+button svg {
+    display: block;
+    pointer-events: none;
+    flex-shrink: 0;
+}
+
+#themeToggle,
+.delete-btn {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.toggle-comments-btn {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+}
+
 /* theme variables */
 :root {
     --bg: #0F0F23;
@@ -163,7 +183,6 @@ body::before {
 }
 
 .container:hover {
-    transform: scale(1.002) translateY(-2px);
     box-shadow: var(--container-shadow), var(--glow-effect);
 }
 
@@ -192,13 +211,6 @@ h1 {
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     background-clip: text;
-    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-    animation: titleGlow 3s ease-in-out infinite alternate;
-}
-
-@keyframes titleGlow {
-    0% { filter: brightness(1); }
-    100% { filter: brightness(1.1) drop-shadow(0 0 8px rgba(102, 126, 234, 0.3)); }
 }
 
 .task-count {
@@ -220,14 +232,12 @@ h1 {
     background: var(--card-bg);
     backdrop-filter: var(--card-backdrop);
     border: 1.5px solid var(--border);
-    border-radius: 16px;
-    font-size: 1.4rem;
+    border-radius: 14px;
     cursor: pointer;
-    padding: 12px 14px;
-    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    padding: 10px 12px;
+    transition: all 0.25s cubic-bezier(0.4, 0, 0.2, 1);
     line-height: 1;
-    position: relative;
-    overflow: hidden;
+    color: var(--text-muted);
     box-shadow: var(--input-shadow);
 }
 
@@ -245,8 +255,8 @@ h1 {
 #themeToggle:hover {
     background: var(--accent-light);
     border-color: var(--accent-solid);
-    transform: rotate(10deg) scale(1.1);
-    box-shadow: var(--card-hover-shadow), var(--glow-effect);
+    transform: scale(1.08);
+    box-shadow: var(--card-hover-shadow);
 }
 
 #themeToggle:hover::before {
@@ -259,7 +269,7 @@ h1 {
 }
 
 #themeToggle:active {
-    transform: rotate(10deg) scale(1.05);
+    transform: scale(1.02);
 }
 
 /* Input area */
@@ -363,8 +373,8 @@ h1 {
 }
 
 #addBtn:hover {
-    transform: translateY(-3px) scale(1.05);
-    box-shadow: 0 12px 28px rgba(102, 126, 234, 0.5), var(--glow-effect);
+    transform: translateY(-2px);
+    box-shadow: 0 10px 24px rgba(102, 126, 234, 0.45);
 }
 
 #addBtn:hover::before {
@@ -407,8 +417,8 @@ h1 {
 }
 
 .state-filters:hover {
-    transform: translateY(-2px);
-    box-shadow: var(--card-hover-shadow), var(--glow-effect);
+    transform: translateY(-1px);
+    box-shadow: var(--card-hover-shadow);
 }
 
 .state-filters::before {
@@ -536,8 +546,8 @@ h1 {
 .filter-btn:hover {
     color: var(--text);
     background: var(--accent-light);
-    transform: scale(1.08) translateY(-2px);
-    box-shadow: 0 8px 16px rgba(102, 126, 234, 0.2);
+    transform: translateY(-1px);
+    box-shadow: 0 4px 12px rgba(102, 126, 234, 0.15);
 }
 
 .filter-btn:hover::before {
@@ -552,24 +562,9 @@ h1 {
 .filter-btn.active {
     background: var(--accent);
     color: white;
-    box-shadow: 0 8px 24px rgba(102, 126, 234, 0.4), 
-                inset 0 1px 0 rgba(255, 255, 255, 0.3),
-                0 0 0 2px rgba(102, 126, 234, 0.2);
-    transform: scale(1.05);
-    animation: activeFilterPulse 2s ease-in-out infinite;
-}
-
-@keyframes activeFilterPulse {
-    0%, 100% { 
-        box-shadow: 0 8px 24px rgba(102, 126, 234, 0.4), 
-                    inset 0 1px 0 rgba(255, 255, 255, 0.3),
-                    0 0 0 2px rgba(102, 126, 234, 0.2);
-    }
-    50% { 
-        box-shadow: 0 8px 24px rgba(102, 126, 234, 0.6), 
-                    inset 0 1px 0 rgba(255, 255, 255, 0.4),
-                    0 0 0 3px rgba(102, 126, 234, 0.3);
-    }
+    box-shadow: 0 6px 18px rgba(102, 126, 234, 0.35),
+                inset 0 1px 0 rgba(255, 255, 255, 0.25);
+    transform: scale(1.04);
 }
 
 .filter-btn.active::after {
@@ -577,13 +572,6 @@ h1 {
     color: var(--accent-solid);
     opacity: 1;
     transform: scale(1);
-    animation: counterBounce 0.5s cubic-bezier(0.68, -0.55, 0.265, 1.55);
-}
-
-@keyframes counterBounce {
-    0% { transform: scale(1.2) rotate(10deg); }
-    50% { transform: scale(1.4) rotate(0deg); }
-    100% { transform: scale(1) rotate(0deg); }
 }
 
 #categoryFilter {
@@ -619,8 +607,8 @@ h1 {
 }
 
 #categoryFilter:hover {
-    transform: scale(1.08) translateY(-2px);
-    box-shadow: var(--card-hover-shadow), var(--glow-effect);
+    transform: translateY(-2px);
+    box-shadow: var(--card-hover-shadow);
     background: var(--accent);
     color: white;
     border-color: var(--accent-solid);
@@ -740,8 +728,8 @@ h1 {
 }
 
 .state-badge:hover {
-    transform: scale(1.1) translateY(-2px);
-    filter: brightness(1.1);
+    transform: scale(1.05);
+    filter: brightness(1.05);
 }
 
 .state-badge:active {
@@ -807,49 +795,30 @@ h1 {
 
 /* Delete button */
 .delete-btn {
-    padding: 8px 10px;
-    background: var(--delete-bg-hover);
+    padding: 7px 9px;
+    background: transparent;
     backdrop-filter: blur(10px);
-    color: var(--delete-color);
-    border: 1px solid rgba(239, 68, 68, 0.2);
-    border-radius: 12px;
-    font-size: 16px;
+    color: var(--text-muted);
+    border: 1px solid transparent;
+    border-radius: 10px;
     line-height: 1;
     cursor: pointer;
-    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
     flex-shrink: 0;
-    opacity: 0.7;
-    position: relative;
-    overflow: hidden;
-}
-
-.delete-btn::before {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    background: radial-gradient(circle, rgba(239, 68, 68, 0.1) 0%, transparent 70%);
-    opacity: 0;
-    transition: opacity 0.3s ease;
+    opacity: 0.6;
 }
 
 .delete-btn:hover {
     background: var(--delete-color);
     color: white;
     border-color: var(--delete-color);
-    transform: scale(1.15) rotate(-5deg);
+    transform: scale(1.1);
     opacity: 1;
-    box-shadow: 0 4px 12px rgba(239, 68, 68, 0.4);
-}
-
-.delete-btn:hover::before {
-    opacity: 1;
+    box-shadow: 0 4px 12px rgba(239, 68, 68, 0.35);
 }
 
 .delete-btn:active {
-    transform: scale(1.1) rotate(-2deg);
+    transform: scale(1.05);
 }
 
 /* Empty state */
@@ -976,14 +945,14 @@ h1 {
 }
 
 .kanban-column:hover {
-    transform: scale(1.02) translateY(-4px);
-    box-shadow: var(--card-hover-shadow), var(--glow-effect);
+    transform: translateY(-2px);
+    box-shadow: var(--card-hover-shadow);
 }
 
 .kanban-column.drag-over {
     border-color: var(--accent-solid);
-    box-shadow: 0 0 0 3px var(--accent-light), var(--glow-effect);
-    transform: scale(1.03) translateY(-6px);
+    box-shadow: 0 0 0 2px var(--accent-light);
+    transform: translateY(-2px);
 }
 
 .column-header {
@@ -1031,12 +1000,6 @@ h1 {
     min-width: 24px;
     text-align: center;
     box-shadow: 0 2px 8px rgba(102, 126, 234, 0.3);
-    animation: pulse 2s ease-in-out infinite;
-}
-
-@keyframes pulse {
-    0%, 100% { transform: scale(1); }
-    50% { transform: scale(1.05); }
 }
 
 #column-plan .column-header { border-bottom-color: var(--plan-border); }

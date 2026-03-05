@@ -1,3 +1,9 @@
+// SVG icon constants
+const SVG_MOON = `<svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>`;
+const SVG_SUN = `<svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/><line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/></svg>`;
+const SVG_TRASH = `<svg xmlns="http://www.w3.org/2000/svg" width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="3 6 5 6 21 6"/><path d="M19 6l-1 14a2 2 0 0 1-2 2H8a2 2 0 0 1-2-2L5 6"/><path d="M10 11v6M14 11v6"/><path d="M9 6V4a1 1 0 0 1 1-1h4a1 1 0 0 1 1 1v2"/></svg>`;
+const SVG_COMMENT = `<svg xmlns="http://www.w3.org/2000/svg" width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>`;
+
 // Get DOM elements
 const todoInput = document.getElementById('todoInput');
 const addBtn = document.getElementById('addBtn');
@@ -121,10 +127,10 @@ async function attemptMigration() {
   const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
   if (saved === 'dark' || (!saved && prefersDark)) {
     document.body.classList.add('dark');
-    if (themeToggle) { themeToggle.textContent = '☀️'; themeToggle.setAttribute('aria-pressed', 'true'); }
+    if (themeToggle) { themeToggle.innerHTML = SVG_SUN; themeToggle.setAttribute('aria-pressed', 'true'); }
   } else {
     document.body.classList.remove('dark');
-    if (themeToggle) { themeToggle.textContent = '🌙'; themeToggle.setAttribute('aria-pressed', 'false'); }
+    if (themeToggle) { themeToggle.innerHTML = SVG_MOON; themeToggle.setAttribute('aria-pressed', 'false'); }
   }
 })();
 
@@ -161,7 +167,7 @@ if (themeToggle) {
   themeToggle.addEventListener('click', () => {
     const isDark = document.body.classList.toggle('dark');
     localStorage.setItem('theme', isDark ? 'dark' : 'light');
-    themeToggle.textContent = isDark ? '☀️' : '🌙';
+    themeToggle.innerHTML = isDark ? SVG_SUN : SVG_MOON;
     themeToggle.setAttribute('aria-pressed', isDark ? 'true' : 'false');
   });
 }
@@ -288,7 +294,7 @@ function createCard(todo) {
 
   const deleteBtn = document.createElement('button');
   deleteBtn.className = 'delete-btn';
-  deleteBtn.innerHTML = '🗑';
+  deleteBtn.innerHTML = SVG_TRASH;
   deleteBtn.title = 'Delete task';
   deleteBtn.setAttribute('aria-label', 'Delete task');
   deleteBtn.addEventListener('click', () => deleteTodo(todo.id));
@@ -332,7 +338,7 @@ function createCard(todo) {
 
   const toggleBtn = document.createElement('button');
   toggleBtn.className = 'toggle-comments-btn';
-  toggleBtn.textContent = `💬 ${comments.length} comment${comments.length !== 1 ? 's' : ''}`;
+  toggleBtn.innerHTML = `${SVG_COMMENT} ${comments.length} comment${comments.length !== 1 ? 's' : ''}`;
 
   const commentsSection = document.createElement('div');
   commentsSection.className = 'comments-section';
@@ -395,7 +401,7 @@ function createCard(todo) {
       t.comments.push({ text, date: new Date().toISOString() });
       commentInput.value = '';
       comments.splice(0, comments.length, ...t.comments);
-      toggleBtn.textContent = `💬 ${comments.length} comment${comments.length !== 1 ? 's' : ''}`;
+      toggleBtn.innerHTML = `${SVG_COMMENT} ${comments.length} comment${comments.length !== 1 ? 's' : ''}`;
       renderComments();
       await saveTodos();
     }
